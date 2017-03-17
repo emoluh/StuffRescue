@@ -46,11 +46,14 @@ textarea {
     background-color:#d2d2d2;
      border-color:#d2d2d2;
 }
-
-.navbar-inverse .navbar-nav > li > a {
+.navbar-inverse .btn-link {
+   text-decoration: none;
+   line-height:100%;
+}
+.navbar-inverse .navbar-nav > li > a,.navbar-inverse .btn-link {
     color: #fff;
 }
-.navbar-inverse .navbar-nav > li > a:hover{
+.navbar-inverse .navbar-nav > li > a:hover,.navbar-inverse .btn-link:hover{
     background-color: #333
 }
 .navbar-inverse .navbar-nav > .active > a,.navbar-inverse .navbar-nav > .active > a:hover{

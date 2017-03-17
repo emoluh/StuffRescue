@@ -26,19 +26,22 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">StuffRescue</a>
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li class="@if (ViewData["Title"].ToString() == "Home Page"){<text>active</text>}"><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li class="@if (ViewData["Title"].ToString() == "About"){<text>active</text>}"><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li class="@if (ViewData["Title"].ToString() == "Contact") {<text>active</text>}"><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-                </ul>
                 @await Html.PartialAsync("_LoginPartial")
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="@if (ViewData["Title"].ToString() == "Home Page"){<text>active</text>}"><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                </ul>
             </div>
         </div>
     </div>
     <div class="container body-content">
+        <div style="margin-top: 35px;">
+            <a href="@Url.Action("Index", "Home")">
+                <img src="~/images/StuffRescueLogo.png"
+                     style="margin-top: 30px; width: 320px; height: 80px;" alt="Company Logo" />
+            </a>
+        </div>
         @RenderBody()
         <hr />
         <footer>
