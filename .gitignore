@@ -1,7 +1,13 @@
 #Ignore thumbnails created by Windows
 Thumbs.db
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
 #Ignore files built by Visual Studio
 bin
+project.lock.json
 *.user
 *.aps
 *.pch
@@ -19,4 +25,5 @@ bin
 *.sbr
 obj/
 [Rr]elease*/
-_ReSharper*/
+# Visual Studio 2015
+.vs/
