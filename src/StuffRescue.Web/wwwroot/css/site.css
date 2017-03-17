@@ -49,8 +49,9 @@ textarea {
 .navbar-inverse .btn-link {
    text-decoration: none;
    line-height:100%;
+   color:#333;
 }
-.navbar-inverse .navbar-nav > li > a,.navbar-inverse .btn-link {
+.navbar-inverse .navbar-nav > li > a {
     color: #fff;
 }
 .navbar-inverse .navbar-nav > li > a:hover,.navbar-inverse .btn-link:hover{
@@ -58,6 +59,10 @@ textarea {
 }
 .navbar-inverse .navbar-nav > .active > a,.navbar-inverse .navbar-nav > .active > a:hover{
     background-color: #3498db;
+}
+
+.dropdown-menu > li > a{
+
 }
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {

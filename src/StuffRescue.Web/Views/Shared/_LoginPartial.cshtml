@@ -9,11 +9,14 @@
     <form asp-area="" asp-controller="Account" asp-action="LogOff" method="post" id="logoutForm" class="navbar-right">
         <ul class="nav navbar-nav navbar-right">
             <li class="@if (ViewData["Title"].ToString() == "Manage your account"){<text>active</text>}">
-                <a asp-area="" asp-controller="Manage" asp-action="Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
-            </li>
-            <li>
-                <button type="submit" class="btn btn-link navbar-btn navbar-link">Log off</button>
-            </li>
+                <a asp-area="" class="dropdown-toggle" data-toggle="dropdown" title="Manage">Hello @UserManager.GetUserName(User)!</a> 
+                <ul class="dropdown-menu">
+                    <li class="@if (ViewData["Title"].ToString() == "Register"){<text>active</text>}"><a asp-area="" asp-controller="Manage" asp-action="Index">My Account</a></li>
+                    <li class="@if (ViewData["Title"].ToString() == "Change Password"){<text>active</text>}"><a asp-area="" asp-controller="Manage" asp-action="ChangePassword">Change Password</a></li>
+                    <li><button type="submit" class="btn btn-link navbar-btn navbar-link">Log off</button></li>
+                    <li><a asp-area="" asp-controller="Account" asp-action="LogOff">Log Out</a></li>
+                </ul>
+            </li>          
         </ul>
     </form>
 }
