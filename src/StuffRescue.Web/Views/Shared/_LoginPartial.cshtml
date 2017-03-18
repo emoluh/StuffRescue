@@ -13,8 +13,7 @@
                 <ul class="dropdown-menu">
                     <li class="@if (ViewData["Title"].ToString() == "Manage your account"){<text>active</text>}"><a asp-area="" asp-controller="Manage" asp-action="Index">My Account</a></li>
                     <li class="@if (ViewData["Title"].ToString() == "Change Password"){<text>active</text>}"><a asp-area="" asp-controller="Manage" asp-action="ChangePassword">Change Password</a></li>
-                    @*<li><button type="submit" class="btn btn-link navbar-btn navbar-link">Log off</button></li>*@
-                    <li><a asp-area="" asp-controller="Account" asp-action="LogOff">Sign Out</a></li>
+                    <li><!a href="javascript:document.forms.item(0).submit();">Sign Out</!a></li>
                 </ul>
             </li>          
         </ul>

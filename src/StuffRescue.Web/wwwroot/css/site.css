@@ -54,7 +54,8 @@ textarea {
 .navbar-inverse .navbar-nav > li > a {
     color: #fff;
 }
-.navbar-inverse .navbar-nav > li > a:hover,.navbar-inverse .btn-link:hover{
+.navbar-inverse .navbar-nav > li > a:hover
+{
     background-color: #333
 }
 .navbar-inverse .navbar-nav > .active > a,.navbar-inverse .navbar-nav > .active > a:hover{
