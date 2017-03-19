@@ -18,6 +18,9 @@
             </li>          
         </ul>
     </form>
+    <ul class="nav navbar-nav navbar-right">
+        <li class="@if (ViewData["Title"].ToString() == "Add Stuff"){<text>active</text>}"><a asp-area="" asp-controller="Stuff" asp-action="Index">Add Stuff</a></li>
+    </ul>
 }
 else
 {
