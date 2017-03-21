@@ -1,8 +1,11 @@
-﻿namespace StuffRescue.Web.Models.StuffViewModels
+﻿using Microsoft.AspNetCore.Http;
+using System.Collections.Generic;
+
+namespace StuffRescue.Web.Models.StuffViewModels
 {
     public class ItemViewModel
     {
-        public string Photo { get; set; }
+        public ICollection<IFormFile> Photos { get; set; }
         public string Make { get; set; }
 
         public string Category { get; set; }
