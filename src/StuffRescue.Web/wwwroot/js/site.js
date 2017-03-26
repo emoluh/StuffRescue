@@ -1,54 +1,75 @@
 ﻿// Write your Javascript code.
-Dropzone.options.UploadForm = {
-    maxFilesize: 20, // MB
-    acceptedFiles: "image/*"
-};
 
-// Get the template HTML and remove it from the doumenthe template HTML and remove it from the doument
-var previewNode = document.querySelector("#template");
-previewNode.id = "";
-var previewTemplate = previewNode.parentNode.innerHTML;
-previewNode.parentNode.removeChild(previewNode);
+var app = app || {};
 
-var myDropzone = new Dropzone(document.body, { // Make the whole body a dropzone
-    url: "/target-url", // Set the url
-    thumbnailWidth: 80,
-    thumbnailHeight: 80,
-    parallelUploads: 20,
-    previewTemplate: previewTemplate,
-    autoQueue: false, // Make sure the files aren't queued until manually added
-    previewsContainer: "#previews", // Define the container to display the previews
-    clickable: ".fileinput-button" // Define the element that should be used as click trigger to select files.
-});
+app.imagePreview = (function () {
+    'use strict';
+    var uploadElement, showPicture;
 
-myDropzone.on("addedfile", function (file) {
-    // Hookup the start button
-    file.previewElement.querySelector(".start").onclick = function () { myDropzone.enqueueFile(file); };
-});
+    var init = function () {
+        uploadElement = $("#take-picture")
+        showPicture = $(".js-show-picture");
 
-// Update the total progress bar
-myDropzone.on("totaluploadprogress", function (progress) {
-    document.querySelector("#total-progress .progress-bar").style.width = progress + "%";
-});
+        handlePhotUpload();
+        hideDialogHandler();
+    };
 
-myDropzone.on("sending", function (file) {
-    // Show the total progress bar when upload starts
-    document.querySelector("#total-progress").style.opacity = "1";
-    // And disable the start button
-    file.previewElement.querySelector(".start").setAttribute("disabled", "disabled");
-});
+    var handlePhotUpload = function () {
 
-// Hide the total progress bar when nothing's uploading anymore
-myDropzone.on("queuecomplete", function (progress) {
-    document.querySelector("#total-progress").style.opacity = "0";
-});
+        uploadElement.on('change', function (event) {
+            // Prevent default dragging of selected content
+            event.preventDefault();
 
-// Setup the buttons for all transfers
-// The "add files" button doesn't need to be setup because the config
-// `clickable` has already been specified.
-document.querySelector("#actions .start").onclick = function () {
-    myDropzone.enqueueFiles(myDropzone.getFilesWithStatus(Dropzone.ADDED));
-};
-document.querySelector("#actions .cancel").onclick = function () {
-    myDropzone.removeAllFiles(true);
-};
+            var files = event.target.files,
+                file;
+
+            if (files && files.length > 0) {
+                file = files[0];
+                var fileReader = new FileReader();
+                fileReader.onload = function (event) {
+                    showPicture.attr('src', event.target.result);
+                };
+                fileReader.readAsDataURL(file);
+            }
+        });
+    }
+
+    var hideDialogHandler = function ($event) {
+
+        $(".js-close-preview").on('click', function ($event) {
+
+            $event.preventDefault();
+            clearFileInput(uploadElement);
+            showPicture.attr('src', '');
+        });
+    };
+
+    var clearFileInput = function ($input) {
+        if ($input.val() == '') {
+            return;
+        }
+        // Fix for IE ver < 11, that does not clear file inputs
+        // Requires a sequence of steps to prevent IE crashing but
+        // still allow clearing of the file input.
+        if (/MSIE/.test(navigator.userAgent)) {
+            var $frm1 = $input.closest('form');
+            if ($frm1.length) { // check if the input is already wrapped in a form
+                $input.wrap('<form>');
+                var $frm2 = $input.closest('form'), // the wrapper form
+                    $tmpEl = $(document.createElement('div')); // a temporary placeholder element
+                $frm2.before($tmpEl).after($frm1).trigger('reset');
+                $input.unwrap().appendTo($tmpEl).unwrap();
+            } else { // no parent form exists - just wrap a form element
+                $input.wrap('<form>').closest('form').trigger('reset').unwrap();
+            }
+        } else { // normal reset behavior for other sane browsers
+            $input.val('');
+        }
+    };
+
+    return {
+        link: init
+    };
+})();
+
+$(document).ready(app.imagePreview.link);
