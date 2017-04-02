@@ -28,7 +28,7 @@ namespace StuffRescue.Web
             if (env.IsDevelopment())
             {
                 // For more details on using the user secret store see http://go.microsoft.com/fwlink/?LinkID=532709
-                builder.AddUserSecrets();
+                builder.AddUserSecrets<Startup>();
             }
 
             builder.AddEnvironmentVariables();
@@ -85,8 +85,8 @@ namespace StuffRescue.Web
             // Add external authentication middleware below. To configure them please see http://go.microsoft.com/fwlink/?LinkID=532715
             app.UseFacebookAuthentication(new FacebookOptions()
             {
-                AppId = "1076873015689579",//Configuration["Authentication:Facebook:AppId"],
-                AppSecret = "bc848741fa9a6ffb035c619ce16361b0"// Configuration["Authentication:Facebook:AppSecret"]
+                AppId = Configuration["Authentication:Facebook:AppId"],
+                AppSecret = Configuration["Authentication:Facebook:AppSecret"]
             });
 
             app.UseMvc(routes =>
