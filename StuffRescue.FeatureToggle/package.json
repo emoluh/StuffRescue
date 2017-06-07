@@ -1,0 +1,9 @@
+{
+  "name": "stuff-rescue.feature-toggle",
+  "version": "0.0.0",
+  "description": "StuffRescue.FeatureToggle",
+  "main": "server.js",
+  "author": {
+    "name": "Emmanuel.Moluh"
+  }
+}
