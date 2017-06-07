@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -13,6 +9,8 @@ using StuffRescue.Web.Data;
 using StuffRescue.Web.Models;
 using StuffRescue.Web.Services;
 using Microsoft.AspNetCore.Mvc;
+using StuffRescue.FeatureToggle.Internal;
+using StuffRescue.Web.Models.FeatureToggle;
 
 namespace StuffRescue.Web
 {
@@ -40,6 +38,13 @@ namespace StuffRescue.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Set provider config so file is read from content root path
+            var provider = new AppSettingsProvider { Configuration = Configuration };
+
+            services.AddSingleton(new Facebook { ToggleValueProvider = provider });
+
+            //services.AddSingleton(new Facebook ());
+
             // Add framework services.
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));

@@ -3,15 +3,28 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26228.10
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hosting", "Hosting", "{00405DEA-2C88-4DF4-A930-0CD60D87FFC3}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Hosting", "1. Hosting", "{00405DEA-2C88-4DF4-A930-0CD60D87FFC3}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StuffRescue.Web", "src\StuffRescue.Web\StuffRescue.Web.csproj", "{DD285898-F67B-4FF5-BA2B-5CC53272BCB3}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{FEF7E4AB-FE23-457D-85AA-24D9F305D779}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Tests", "3. Tests", "{FEF7E4AB-FE23-457D-85AA-24D9F305D779}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.Integration Tests", "2.Integration Tests", "{5FAB39F5-FA1E-41B1-AFDE-C64E65C1C949}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StuffRescue.Web.Tests", "StuffRescue.Web.Tests\StuffRescue.Web.Tests.csproj", "{A4D9C71C-DE09-479C-BF40-94B4FCAE357B}"
+EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "StuffRescue.FeatureToggle", "StuffRescue.FeatureToggle\StuffRescue.FeatureToggle.njsproj", "{C1908BE9-5CD9-49A8-96DA-677FF6E75697}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Tools", "2. Tools", "{5A8A0C41-F798-4667-B764-BD18D3EC81CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StuffRescue.FeatureToggle.Common", "StuffRescue.FeatureToggle.Common\StuffRescue.FeatureToggle.Common.csproj", "{4B59A4BC-5CBD-4FAB-9537-0D48EF74EDE3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StuffRescue.FeatureToggle.Shared", "StuffRescue.FeatureToggle.Shared\StuffRescue.FeatureToggle.Shared.csproj", "{65E36B71-3F3D-44CE-BB47-C865B2257036}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0. Docs", "0. Docs", "{041A8411-BE88-4E32-8DEA-B7740AF79687}"
+	ProjectSection(SolutionItems) = preProject
+		doc\1. Registration Flow.vsdx = doc\1. Registration Flow.vsdx
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +40,18 @@ Global
 		{A4D9C71C-DE09-479C-BF40-94B4FCAE357B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A4D9C71C-DE09-479C-BF40-94B4FCAE357B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A4D9C71C-DE09-479C-BF40-94B4FCAE357B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1908BE9-5CD9-49A8-96DA-677FF6E75697}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1908BE9-5CD9-49A8-96DA-677FF6E75697}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1908BE9-5CD9-49A8-96DA-677FF6E75697}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1908BE9-5CD9-49A8-96DA-677FF6E75697}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B59A4BC-5CBD-4FAB-9537-0D48EF74EDE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B59A4BC-5CBD-4FAB-9537-0D48EF74EDE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B59A4BC-5CBD-4FAB-9537-0D48EF74EDE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B59A4BC-5CBD-4FAB-9537-0D48EF74EDE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65E36B71-3F3D-44CE-BB47-C865B2257036}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65E36B71-3F3D-44CE-BB47-C865B2257036}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65E36B71-3F3D-44CE-BB47-C865B2257036}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65E36B71-3F3D-44CE-BB47-C865B2257036}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -35,5 +60,8 @@ Global
 		{DD285898-F67B-4FF5-BA2B-5CC53272BCB3} = {00405DEA-2C88-4DF4-A930-0CD60D87FFC3}
 		{5FAB39F5-FA1E-41B1-AFDE-C64E65C1C949} = {FEF7E4AB-FE23-457D-85AA-24D9F305D779}
 		{A4D9C71C-DE09-479C-BF40-94B4FCAE357B} = {5FAB39F5-FA1E-41B1-AFDE-C64E65C1C949}
+		{C1908BE9-5CD9-49A8-96DA-677FF6E75697} = {5A8A0C41-F798-4667-B764-BD18D3EC81CE}
+		{4B59A4BC-5CBD-4FAB-9537-0D48EF74EDE3} = {5A8A0C41-F798-4667-B764-BD18D3EC81CE}
+		{65E36B71-3F3D-44CE-BB47-C865B2257036} = {5A8A0C41-F798-4667-B764-BD18D3EC81CE}
 	EndGlobalSection
 EndGlobal

@@ -11,12 +11,15 @@ using Microsoft.Extensions.Logging;
 using StuffRescue.Web.Models;
 using StuffRescue.Web.Models.AccountViewModels;
 using StuffRescue.Web.Services;
+using StuffRescue.Web.Models.FeatureToggle;
 
 namespace StuffRescue.Web.Controllers
 {
     [Authorize]
     public class AccountController : Controller
     {
+        private readonly Facebook _facebook;
+
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IEmailSender _emailSender;
@@ -24,12 +27,14 @@ namespace StuffRescue.Web.Controllers
         private readonly ILogger _logger;
 
         public AccountController(
+            Facebook facebook,
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             IEmailSender emailSender,
             ISmsSender smsSender,
             ILoggerFactory loggerFactory)
         {
+            _facebook = facebook;
             _userManager = userManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
@@ -44,7 +49,7 @@ namespace StuffRescue.Web.Controllers
         public IActionResult Login(string returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
-            return View();
+            return View( new LoginViewModel { Facebook = _facebook });
         }
 
         //
@@ -271,11 +276,11 @@ namespace StuffRescue.Web.Controllers
 
                 // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=532713
                 // Send an email with this link
-                //var code = await _userManager.GeneratePasswordResetTokenAsync(user);
-                //var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: HttpContext.Request.Scheme);
-                //await _emailSender.SendEmailAsync(model.Email, "Reset Password",
-                //   $"Please reset your password by clicking here: <a href='{callbackUrl}'>link</a>");
-                //return View("ForgotPasswordConfirmation");
+                var code = await _userManager.GeneratePasswordResetTokenAsync(user);
+                var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: HttpContext.Request.Scheme);
+                await _emailSender.SendEmailAsync(model.Email, "Reset Password",
+                   $"Please reset your password by clicking here: <a href='{callbackUrl}'>link</a>");
+                return View("ForgotPasswordConfirmation");
             }
 
             // If we got this far, something failed, redisplay form

@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
+using StuffRescue.FeatureToggle;
 
 namespace StuffRescue.Web.Models.AccountViewModels
 {
@@ -18,5 +15,6 @@ namespace StuffRescue.Web.Models.AccountViewModels
 
         [Display(Name = "Remember me?")]
         public bool RememberMe { get; set; }
+        public IFeatureToggle Facebook { get; set; }
     }
 }
