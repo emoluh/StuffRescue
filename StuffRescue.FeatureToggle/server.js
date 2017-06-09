@@ -1,6 +1,6 @@
 'use strict';
 var Connection = require('tedious').Connection;
-var Request = require('tedious').Request;
+var request = require('tedious').Request;
 
 // Create connection to database
 var config = {
