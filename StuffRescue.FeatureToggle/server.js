@@ -1,6 +1,11 @@
 'use strict';
 var Connection = require('tedious').Connection;
-var request = require('tedious').Request;
+var Request = require('tedious').Request;
+
+//Plan: Update Git Markdown
+//FrontEnd: React, Bootstrap(Foundation)
+//BackEnd: Express Web Server, Restful Api Framework(Loopback?)
+//Test: Jasmine Framework
 
 // Create connection to database
 var config = {
@@ -9,6 +14,7 @@ var config = {
     server: '[mydbname].database.windows.net', // update me
     options: {
         database: '[mydatabase]', //update me
+        tdsVersion: '7_1',
         encrypt: true
     }
 }
@@ -20,14 +26,14 @@ connection.on('connect', function (err) {
     }
     else {
         console.log('Database connneted...');
-        executeStatement();
+        queryDatabase();
     }
 });
 
 function insertIntoDatabase() {
     console.log("Inserting a brand new feature into database...");
-    request = new Request(
-        "INSERT INTO dbo.[mydatabase] (Name, Value) VALUES ('DataSource', 1)",
+    var request = new Request(
+        "INSERT INTO dbo.[mytablename] (Name, Value) VALUES ('DataSource2', 0)",
         function (err, rowCount, rows) {
             console.log(rowCount + ' row(s) inserted');
         }
@@ -39,8 +45,8 @@ function queryDatabase() {
     console.log('Reading rows from the Table...');
 
     // Read all rows from table
-    request = new Request(
-        "SELECT ff.Name, ff.Value FROM dbo.[mydatabase] ff",
+    var request = new Request(
+        "SELECT ft.Name, ft.Value FROM dbo.[mytablename] ft",
         function (err, rowCount, rows) {
             console.log(rowCount + ' row(s) returned');
         }
@@ -56,7 +62,7 @@ function queryDatabase() {
 }
 
 function executeStatement() {
-    request = new Request("select 42, 'hello world'", function (err, rowCount) {
+    var request = new Request("select 42, 'hello world'", function (err, rowCount) {
         if (err) {
             console.log(err);
         } else {
