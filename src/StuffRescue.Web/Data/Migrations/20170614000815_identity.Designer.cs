@@ -124,7 +124,7 @@ namespace StuffRescue.Web.Data.Migrations
                     b.ToTable("UserTokens");
                 });
 
-            modelBuilder.Entity("StuffRescue.Web.Models.ApplicationUser", b =>
+            modelBuilder.Entity("StuffRescue.Web.Models.StuffRescueUser", b =>
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
@@ -184,7 +184,7 @@ namespace StuffRescue.Web.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("StuffRescue.Web.Models.ApplicationUser")
+                    b.HasOne("StuffRescue.Web.Models.StuffRescueUser")
                         .WithMany("Claims")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -192,7 +192,7 @@ namespace StuffRescue.Web.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("StuffRescue.Web.Models.ApplicationUser")
+                    b.HasOne("StuffRescue.Web.Models.StuffRescueUser")
                         .WithMany("Logins")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -205,7 +205,7 @@ namespace StuffRescue.Web.Data.Migrations
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("StuffRescue.Web.Models.ApplicationUser")
+                    b.HasOne("StuffRescue.Web.Models.StuffRescueUser")
                         .WithMany("Roles")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);

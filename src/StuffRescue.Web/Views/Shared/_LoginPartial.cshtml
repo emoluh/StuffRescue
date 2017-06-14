@@ -1,8 +1,8 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @using StuffRescue.Web.Models
 
-@inject SignInManager<ApplicationUser> SignInManager
-@inject UserManager<ApplicationUser> UserManager
+@inject SignInManager<StuffRescueUser> SignInManager
+@inject UserManager<StuffRescueUser> UserManager
 
 @if (SignInManager.IsSignedIn(User))
 {
