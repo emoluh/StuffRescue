@@ -74,16 +74,18 @@
                                     for details on setting up this ASP.NET application to support logging in via external services.
                         </p>
                     </div>
-                        }
-                        else 
-                        {
+                }
+                else 
+                {
                     <form asp-controller="Account" asp-action="ExternalLogin" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-horizontal">
                         <div>
                             <p>
                                 @foreach (var provider in loginProviders)
-                    {
-                                    <button type="submit" class="btn btn-default" name="provider" value="@provider.AuthenticationScheme" title="Log in using your @provider.DisplayName account">@provider.AuthenticationScheme</button>
-                }
+                                {
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-default" name="provider" value="@provider.AuthenticationScheme" title="Log in using your @provider.DisplayName account">@provider.AuthenticationScheme</button>
+                                    </div>
+                                }
                             </p>
                         </div>
                     </form>

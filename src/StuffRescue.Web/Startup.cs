@@ -88,6 +88,20 @@ namespace StuffRescue.Web
             app.UseIdentity();
 
             // Add external authentication middleware below. To configure them please see http://go.microsoft.com/fwlink/?LinkID=532715
+
+            //TODO: Execute the following commands in the project working directory (<base dir>\StuffRescue\src\StuffRescue.Web) to store the Google secrets: 
+            //dotnet user-secrets set Authentication:Google:ClientID <client_id>
+            //dotnet user-secrets set Authentication:Google: ClientSecret < client - secret >
+            app.UseGoogleAuthentication(new GoogleOptions()
+            {
+                ClientId = Configuration["Authentication:Google:ClientId"],
+                ClientSecret = Configuration["Authentication:Google:ClientSecret"]
+            });
+
+
+            //TODO: Execute the following commands in the project working directory (<base dir>\StuffRescue\src\StuffRescue.Web) to store the Facebook secrets: 
+            //dotnet user-secrets set Authentication:Facebook:AppId <app-Id>
+            //dotnet user-secrets set Authentication:Facebook:AppSecret <app-secret>
             app.UseFacebookAuthentication(new FacebookOptions()
             {
                 AppId = Configuration["Authentication:Facebook:AppId"],
