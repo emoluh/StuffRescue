@@ -7,7 +7,7 @@ using StuffRescue.Web.Data;
 
 namespace StuffRescue.Web.Data.Migrations
 {
-    [DbContext(typeof(ApplicationDbContext))]
+    [DbContext(typeof(StuffRescueDbContext))]
     [Migration("20170614000815_identity")]
     partial class identity
     {

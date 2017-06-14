@@ -46,11 +46,11 @@ namespace StuffRescue.Web
             //services.AddSingleton(new Facebook ());
 
             // Add framework services.
-            services.AddDbContext<ApplicationDbContext>(options =>
+            services.AddDbContext<StuffRescueDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddIdentity<ApplicationUser, IdentityRole>()
-                .AddEntityFrameworkStores<ApplicationDbContext>()
+            services.AddIdentity<StuffRescueUser, IdentityRole>()
+                .AddEntityFrameworkStores<StuffRescueDbContext>()
                 .AddDefaultTokenProviders();
 
 

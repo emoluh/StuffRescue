@@ -4,9 +4,9 @@ using StuffRescue.Web.Models;
 
 namespace StuffRescue.Web.Data
 {
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class StuffRescueDbContext : IdentityDbContext<StuffRescueUser>
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        public StuffRescueDbContext(DbContextOptions<StuffRescueDbContext> options)
             : base(options)
         {
         }
@@ -18,7 +18,7 @@ namespace StuffRescue.Web.Data
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
 
-            builder.Entity<ApplicationUser>(entity =>
+            builder.Entity<StuffRescueUser>(entity =>
             {
                 entity.ToTable(name: "User");
             });
