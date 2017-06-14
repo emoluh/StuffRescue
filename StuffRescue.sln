@@ -24,6 +24,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0. Docs", "0. Docs", "{041A8411-BE88-4E32-8DEA-B7740AF79687}"
 	ProjectSection(SolutionItems) = preProject
 		doc\1. Registration Flow.vsdx = doc\1. Registration Flow.vsdx
+		doc\2. Database Schema.vsdx = doc\2. Database Schema.vsdx
 	EndProjectSection
 EndProject
 Global
