@@ -28,6 +28,7 @@ namespace StuffRescue.Web.Controllers
                 {
                     using (var fileStream = new FileStream(Path.Combine(uploads, file.FileName), FileMode.Create))
                     {
+                        //TODO Save picture to a database
                         await file.CopyToAsync(fileStream);
                     }
                 }
