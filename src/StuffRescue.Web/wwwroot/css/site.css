@@ -113,10 +113,29 @@ textarea {
     border-radius: 15px;
     border: 1px solid #ccc;
 }
+input[name="search"] {
+    margin-top: 2px;
+    margin-bottom: 10px;
+    margin-left: 30px;
+    background-color: #dfdfdf
+}
+/*.right-inner-addon i {
+    position: absolute;
+    right: 0px;
+    padding: 10px 12px;
+    pointer-events: none;
+}*/
+.fa-search {
+    color: orangered;
+}
+.badge {
+    background-color: orangered;
+    margin-top: 15px;
+}
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
-  /* Hide captions */
-  .carousel-caption {
+    /* Hide captions */
+    .carousel-caption {
     display: none
   }
 }
