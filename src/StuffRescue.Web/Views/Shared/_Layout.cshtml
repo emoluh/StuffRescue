@@ -32,15 +32,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-
-                @*<ul class="nav navbar-nav navbar-left">
-                    <li>
-                        <div class="right-inner-addon"> 
-                            <i class="fa fa-search" aria-hidden="true"></i>
-                            <input type="search" class="form-control" name="search" placeholder="Stuffrescue..">
-                        </div>
-                    </li>
-                </ul>*@
+                @await Html.PartialAsync("_Search")
             </div>
             <div class="navbar-collapse collapse">
                 @await Html.PartialAsync("_LoginPartial")
@@ -51,7 +43,10 @@
         </div>
     </div>
     <div class="container body-content">
-        <div style="margin-top: 35px;">
+        <div class="popup" style="opacity:0">
+            <p>Please fill out this field.</p>
+        </div>
+        <div>
             <a href="@Url.Action("Index", "Home")">
                 <img src="~/images/StuffRescueLogo.png"
                      style="margin-top: 30px; width: 320px; height: 80px;" alt="Company Logo" />
@@ -66,8 +61,10 @@
 
     <environment names="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/jquery.easing/js/jquery.easing.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
+        <script src="~/js/functions.js" asp-append-version="true"></script>
     </environment>
     <environment names="Staging,Production">
         <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
@@ -79,6 +76,7 @@
                 asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
         </script>
         <script src="~/js/site.min.js" asp-append-version="true"></script>
+        <script src="~/js/functions.min.js"asp-append-version="true"></script>
     </environment>
 
     @RenderSection("scripts", required: false)

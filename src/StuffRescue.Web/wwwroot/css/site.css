@@ -119,12 +119,6 @@ input[name="search"] {
     margin-left: 30px;
     background-color: #dfdfdf
 }
-/*.right-inner-addon i {
-    position: absolute;
-    right: 0px;
-    padding: 10px 12px;
-    pointer-events: none;
-}*/
 .fa-search {
     color: orangered;
 }

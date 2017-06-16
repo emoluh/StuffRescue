@@ -12,6 +12,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="wwwroot\css\search.css" />
+    <Content Include="wwwroot\images\bg.jpg" />
+    <Content Include="wwwroot\images\form-bg.png" />
+    <Content Include="wwwroot\images\magnifier.png" />
+    <Content Include="wwwroot\images\popup-bg.png" />
+    <Content Include="wwwroot\js\functions.js" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="wwwroot\**\*">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </None>

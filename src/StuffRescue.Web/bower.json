@@ -6,6 +6,7 @@
     "jquery-validation-unobtrusive": "3.2.6",
     "jQuery": "3.2.1",
     "bootstrap": "v3.3.7",
-    "font-awesome": "Font-Awesome#v4.7.0"
+    "font-awesome": "Font-Awesome#v4.7.0",
+    "jquery.easing": "^1.3.1"
   }
 }
