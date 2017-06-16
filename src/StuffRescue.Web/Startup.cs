@@ -75,6 +75,7 @@ namespace StuffRescue.Web
                 config.SendGridKey = Configuration["Email:SendGrid:SendGridKey"];
             });
 
+            services.AddSingleton(config => Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

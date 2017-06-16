@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Options;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 using SendGrid;
 using SendGrid.Helpers.Mail;
 using System.Threading.Tasks;
@@ -10,9 +11,12 @@ namespace StuffRescue.Web.Services
     // For more details see this link http://go.microsoft.com/fwlink/?LinkID=532713
     public class AuthMessageSender : IEmailSender, ISmsSender
     {
-        public AuthMessageSender(IOptions<AuthMessageSenderOptions> optionsAccessor)
+        private IConfigurationRoot _config;
+
+        public AuthMessageSender(IOptions<AuthMessageSenderOptions> optionsAccessor, IConfigurationRoot config)
         {
             Options = optionsAccessor.Value;
+            _config = config;
         }
 
         public AuthMessageSenderOptions Options { get; set; } //set only via Secret Manager
@@ -27,7 +31,7 @@ namespace StuffRescue.Web.Services
             var client = new SendGridClient(apiKey);
             var msg = new SendGridMessage()
             {
-                From = new EmailAddress("Joe@contoso.com", "Joe Smith"),
+                From = new EmailAddress(_config["Email:Sender:From"], _config["Email:Sender:Name"]),
                 Subject = subject,
                 PlainTextContent = message,
                 HtmlContent = message
