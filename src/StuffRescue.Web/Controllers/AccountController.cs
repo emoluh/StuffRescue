@@ -10,6 +10,8 @@ using StuffRescue.Web.Models;
 using StuffRescue.Web.Models.AccountViewModels;
 using StuffRescue.Web.Services;
 using StuffRescue.Web.Models.FeatureToggle;
+using Microsoft.AspNetCore.Routing;
+using Microsoft.AspNetCore.Hosting;
 
 namespace StuffRescue.Web.Controllers
 {
@@ -23,11 +25,13 @@ namespace StuffRescue.Web.Controllers
         private readonly IEmailSender _emailSender;
         private readonly ISmsSender _smsSender;
         private readonly ILogger _logger;
+        private IHostingEnvironment _env;
 
         public AccountController(
             Facebook facebook,
             UserManager<StuffRescueUser> userManager,
             SignInManager<StuffRescueUser> signInManager,
+            IHostingEnvironment env,
             IEmailSender emailSender,
             ISmsSender smsSender,
             ILoggerFactory loggerFactory)
@@ -35,6 +39,7 @@ namespace StuffRescue.Web.Controllers
             _facebook = facebook;
             _userManager = userManager;
             _signInManager = signInManager;
+            _env = env;
             _emailSender = emailSender;
             _smsSender = smsSender;
             _logger = loggerFactory.CreateLogger<AccountController>();
@@ -60,16 +65,19 @@ namespace StuffRescue.Web.Controllers
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
-                // Require the user to have a confirmed email before they can log on.
-                var user = await _userManager.FindByEmailAsync(model.Email);
-                if (user != null)
+                if (!_env.IsDevelopment())
                 {
-                    if (!await _userManager.IsEmailConfirmedAsync(user))
+                    // Require the user to have a confirmed email before they can log on.
+                    var user = await _userManager.FindByEmailAsync(model.Email);
+                    if (user != null)
                     {
-                        ModelState.AddModelError(string.Empty,
-                                      "You must have a confirmed email to log in.");
-                        return View(model);
-                    }
+                        if (!await _userManager.IsEmailConfirmedAsync(user))
+                        {
+                            ModelState.AddModelError(string.Empty,
+                                          "You must have a confirmed email to log in.");
+                            return View(model);
+                        }
+                    } 
                 }
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
@@ -127,11 +135,21 @@ namespace StuffRescue.Web.Controllers
                     // Send an email with this link
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: HttpContext.Request.Scheme);
-                    await _emailSender.SendEmailAsync(model.Email, "Confirm your account",
-                        $"Please confirm your account by clicking this link: <a href='{callbackUrl}'>link</a>");
+
+                    if (!_env.IsDevelopment())
+                    {
+                        await _emailSender.SendEmailAsync(model.Email, "Confirm your account",
+                                       $"Please confirm your account by clicking this link: <a href='{callbackUrl}'>link</a>"); 
+                    }
                     // Comment out following line to prevent a new user automatically logged on.
                     //await _signInManager.SignInAsync(user, isPersistent: false);
                     _logger.LogInformation(3, "User created a new account with password.");
+
+                    if (_env.IsDevelopment())
+                    {
+                        return RedirectToLocal(returnUrl, callbackUrl);
+                    }
+
                     return RedirectToLocal(returnUrl);
                 }
                 AddErrors(result);
@@ -466,7 +484,7 @@ namespace StuffRescue.Web.Controllers
             return _userManager.GetUserAsync(HttpContext.User);
         }
 
-        private IActionResult RedirectToLocal(string returnUrl)
+        private IActionResult RedirectToLocal(string returnUrl, string callbackUrl = "")
         {
             if (Url.IsLocalUrl(returnUrl))
             {
@@ -474,6 +492,12 @@ namespace StuffRescue.Web.Controllers
             }
             else
             {
+               
+                if (!string.IsNullOrEmpty(callbackUrl))
+                {
+                    return RedirectToAction(nameof(HomeController.Index), new RouteValueDictionary(
+                        new { controller = "Home", callbackUrl = callbackUrl })); 
+                }
                 return RedirectToAction(nameof(HomeController.Index), "Home");
             }
         }

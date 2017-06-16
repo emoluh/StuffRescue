@@ -6,6 +6,13 @@ namespace StuffRescue.Web.Controllers
     {
         public IActionResult Index()
         {
+            string callbackUrl = HttpContext.Request.Query["callbackUrl"].ToString();
+
+            if (!string.IsNullOrEmpty(callbackUrl))
+            {
+                ViewData["Message"] = $"Please confirm your account by clicking this link: <a href='{callbackUrl}'>link</a>";
+            }
+
             return View();
         }
 

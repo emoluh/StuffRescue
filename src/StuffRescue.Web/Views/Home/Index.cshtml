@@ -1,3 +1,10 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+
+<environment names="Development">
+    @if (!string.IsNullOrEmpty(@ViewData["Message"]?.ToString()))
+    {
+        <h3>@Html.Raw(@ViewData["Message"].ToString())</h3>
+    }
+</environment>
