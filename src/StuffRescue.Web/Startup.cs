@@ -49,7 +49,10 @@ namespace StuffRescue.Web
             services.AddDbContext<StuffRescueDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddIdentity<StuffRescueUser, IdentityRole>()
+            services.AddIdentity<StuffRescueUser, IdentityRole>(config =>
+                {
+                    config.SignIn.RequireConfirmedEmail = true;
+                })
                 .AddEntityFrameworkStores<StuffRescueDbContext>()
                 .AddDefaultTokenProviders();
 
@@ -64,6 +67,14 @@ namespace StuffRescue.Web
             // Add application services.
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();
+
+            //services.Configure<AuthMessageSenderOptions>(Configuration);
+            services.Configure<AuthMessageSenderOptions>(config => 
+            {
+                config.SendGridUser = Configuration["Email:SendGrid:SendGridUser"];
+                config.SendGridKey = Configuration["Email:SendGrid:SendGridKey"];
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
