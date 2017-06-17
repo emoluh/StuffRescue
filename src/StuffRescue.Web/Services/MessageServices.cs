@@ -3,6 +3,9 @@ using Microsoft.Extensions.Options;
 using SendGrid;
 using SendGrid.Helpers.Mail;
 using System.Threading.Tasks;
+using Twilio;
+using Twilio.Rest.Api.V2010.Account;
+using Twilio.Types;
 
 namespace StuffRescue.Web.Services
 {
@@ -13,17 +16,20 @@ namespace StuffRescue.Web.Services
     {
         private IConfigurationRoot _config;
 
-        public AuthMessageSender(IOptions<AuthMessageSenderOptions> optionsAccessor, IConfigurationRoot config)
+        public AuthMessageSender(IOptions<AuthMessageSenderOptions> emailOptionsAccessor, IOptions<SMSoptions> smsOptionsAccessor,IConfigurationRoot config)
         {
-            Options = optionsAccessor.Value;
+            EmailOptions = emailOptionsAccessor.Value;
+            SMSOptions = smsOptionsAccessor.Value;
             _config = config;
         }
 
-        public AuthMessageSenderOptions Options { get; set; } //set only via Secret Manager
+        public AuthMessageSenderOptions EmailOptions { get; set; } //set only via Secret Manager
+        public SMSoptions SMSOptions { get; }  // set only via Secret Manager
+
         public Task SendEmailAsync(string email, string subject, string message)
         {
             // Plug in your email service here to send an email.
-            return Execute(Options.SendGridKey, subject, message, email);
+            return Execute(EmailOptions.SendGridKey, subject, message, email);
         }
 
         public Task Execute(string apiKey, string subject, string message, string email)
@@ -44,6 +50,17 @@ namespace StuffRescue.Web.Services
         public Task SendSmsAsync(string number, string message)
         {
             // Plug in your SMS service here to send a text message.
+            // Your Account SID from twilio.com/console
+            var accountSid = SMSOptions.SMSAccountIdentification;
+            // Your Auth Token from twilio.com/console
+            var authToken = SMSOptions.SMSAccountPassword;
+
+            TwilioClient.Init(accountSid, authToken);
+
+            var msg = MessageResource.Create(
+              to: new PhoneNumber(number),
+              from: new PhoneNumber(SMSOptions.SMSAccountFrom),
+              body: message);
             return Task.FromResult(0);
         }
     }
