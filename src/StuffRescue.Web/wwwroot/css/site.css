@@ -107,10 +107,6 @@ textarea {
     border-radius: 15px;
     border: 1px solid #ccc;
 }
-.badge {
-    background-color: orangered;
-    margin-top: 15px;
-}
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
     /* Hide captions */
