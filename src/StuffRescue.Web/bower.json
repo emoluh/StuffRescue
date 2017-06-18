@@ -5,6 +5,7 @@
     "jquery-validation": "1.14.0",
     "jquery-validation-unobtrusive": "3.2.6",
     "jQuery": "3.2.1",
-    "bootstrap": "v3.3.7"
+    "bootstrap": "v3.3.7",
+    "css-hamburgers": "v0.8.1"
   }
 }

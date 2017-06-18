@@ -105,6 +105,13 @@ body {
     border:0px;
 }
 /**/
+/*Customize Hamburger*/
+.hamburger .hamburger-inner,
+.hamburger .hamburger-inner:before,
+.hamburger .hamburger-inner:after {
+    background-color: #fff;
+}
+
 .inputfile {
     width: 0.1px;
     height: 0.1px;

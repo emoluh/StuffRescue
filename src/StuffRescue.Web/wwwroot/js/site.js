@@ -73,3 +73,10 @@ app.imagePreview = (function () {
 })();
 
 $(document).ready(app.imagePreview.link);
+
+//Toggle the hamburger icon
+(function () {
+    $(".hamburger--arrow").click(function () {
+        $(".hamburger--arrow").toggleClass("is-active");
+    });
+})();
