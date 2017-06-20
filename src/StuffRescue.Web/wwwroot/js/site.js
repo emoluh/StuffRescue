@@ -73,3 +73,11 @@ app.imagePreview = (function () {
 })();
 
 $(document).ready(app.imagePreview.link);
+
+//(function () {
+//    'use strict';
+//    $(".navbar-inverse .navbar-toggle").click(function () {
+//        $(".navbar-collapse.collapse").toggleClass("in");
+//    });   
+
+//})();
