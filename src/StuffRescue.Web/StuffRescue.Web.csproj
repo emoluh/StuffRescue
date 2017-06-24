@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <Content Include="wwwroot\css\search.css" />
+    <Content Include="wwwroot\js\Components\Search.jsx" />
     <Content Include="wwwroot\js\functions.js" />
   </ItemGroup>
 
