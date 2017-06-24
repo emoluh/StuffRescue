@@ -13,6 +13,21 @@
 
   <ItemGroup>
     <Content Include="wwwroot\css\search.css" />
+    <Content Include="wwwroot\js\Components\AddStuffCam - Copy.jsx">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot\js\Components\AddStuffCam.jsx" />
+    <Content Include="wwwroot\js\Components\Brand.jsx" />
+    <Content Include="wwwroot\js\Components\Notification.jsx">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot\js\Components\LoginPartial.jsx">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot\js\Components\Headshot.jsx" />
+    <Content Include="wwwroot\js\Components\Search - Copy.jsx">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
     <Content Include="wwwroot\js\Components\Search.jsx" />
     <Content Include="wwwroot\js\functions.js" />
   </ItemGroup>

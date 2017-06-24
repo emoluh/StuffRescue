@@ -68,7 +68,7 @@ class SearchApp extends React.Component {
 
     render() {
         return (
-            <div z-index="9999">
+            <div>
                 <form ref={f => this._form = f}>
                     <SearchField
                         name="search"
