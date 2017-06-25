@@ -18,6 +18,8 @@
     </Content>
     <Content Include="wwwroot\js\Components\AddStuffCam.jsx" />
     <Content Include="wwwroot\js\Components\Brand.jsx" />
+    <Content Include="wwwroot\js\Components\Menu.jsx" />
+    <Content Include="wwwroot\js\Components\Nav.jsx" />
     <Content Include="wwwroot\js\Components\Notification.jsx">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>

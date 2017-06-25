@@ -25,49 +25,19 @@
     </environment>
 </head>
 <body>
-    <div id="nav">
-        <!--
-            SignInManager.IsSignedIn(User)
-            ViewData["Title"].ToString()
-        -->
-    </div>
-    <div class="navbar navbar-inverse navbar-fixed-top topbar">
-        <div class="container">
-            <div class="navbar-header">
-                <div class="form-group">
-                    <div class=" col-md-1">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                    </div>
-                    <div class="col-md-2" style="margin-right:20px">
-                        @await Html.PartialAsync("_Brand")
-                    </div>
-                    <div class="col-md-4">
-                        @await Html.PartialAsync("_Search")
-                    </div>
-                    <div class="col-md-1">
-                        @await Html.PartialAsync("_AddStuffCam")
-                    </div>
-                    <div class="col-md-2">
-                        @await Html.PartialAsync("_Headshot")
-                    </div>
-                    <div class="col-md-1">
-                        @await Html.PartialAsync("_Notification")
-                    </div>
-                </div>
-            </div>
-            <div class="navbar-collapse collapse">
-                @await Html.PartialAsync("_LoginPartial")
-                <ul class="nav navbar-nav">
-                    <li class="@if (ViewData["Title"].ToString() == "Home Page"){<text>active</text>}"><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
+    <div id="nav"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/remarkable/1.7.1/remarkable.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/3.7.0/redux.min.js"></script>
+    <script src="@Url.Content("~/js/Components/Nav.jsx")"></script>
+    <script type="text/javascript">
+        var IsSignedIn = @SignInManager.IsSignedIn(User);
+        var User = @User;
+        var Title = @ViewData["Title"].ToString();
+        ReactDOM.render(<Nav IsSignedIn={IsSignedIn} User={User} Title={Title}/>, document.getElementById('nav'));
+    </script>
+
     <div class="container body-content">
         <div style="margin-top: 35px;">
             @*<a asp-area="" asp-controller="Home" asp-action="Index">

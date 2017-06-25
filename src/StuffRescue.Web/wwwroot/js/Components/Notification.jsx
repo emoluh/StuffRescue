@@ -1,3 +1,7 @@
-﻿<div style="margin-top:20px; margin-right:20px">
-    <span class="badge">4</span>
-</div>
+﻿const Notification = () => (
+    <div styles={{marginTop:"20px", marginRight:"20px"}}>
+        <span className="badge">4</span>
+    </div>
+);
+
+export default Notification;
