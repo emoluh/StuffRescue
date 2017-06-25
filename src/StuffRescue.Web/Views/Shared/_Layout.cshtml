@@ -1,4 +1,10 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@using StuffRescue.Web.Models
+
+@inject SignInManager<StuffRescueUser> SignInManager
+@inject UserManager<StuffRescueUser> UserManager
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -19,6 +25,12 @@
     </environment>
 </head>
 <body>
+    <div id="nav">
+        <!--
+            SignInManager.IsSignedIn(User)
+            ViewData["Title"].ToString()
+        -->
+    </div>
     <div class="navbar navbar-inverse navbar-fixed-top topbar">
         <div class="container">
             <div class="navbar-header">
@@ -34,7 +46,7 @@
                     <div class="col-md-2" style="margin-right:20px">
                         @await Html.PartialAsync("_Brand")
                     </div>
-                    <div class="col-md-4"> 
+                    <div class="col-md-4">
                         @await Html.PartialAsync("_Search")
                     </div>
                     <div class="col-md-1">

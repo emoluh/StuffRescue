@@ -74,7 +74,7 @@ class SearchApp extends React.Component {
                         name="search"
                         onChange={this._handleChange} />
                     <div style={this.state.showLargeSearch}>
-                        <SearchFullScreen
+                    <SearchFullScreen
                             onChange={this._handleChange}
                             onClose={this._handleClose} />
                     </div>
