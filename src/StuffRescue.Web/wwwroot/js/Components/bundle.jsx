@@ -101,18 +101,23 @@ class SearchFullScreen extends React.Component {
     }
 }
 
-class Search extends React.Component {
-    constructor() {
-        super();
+class SearchFullScreenForm extends React.Component {
+    constructor(props) {
+        super(props);
+        var Store = props.Store;
 
         this.state = {
             showLargeSearch: {
-                display: 'none'
+                display: 'block'
             }
         };
 
         this._handleChange = this._handleChange.bind(this);
         this._handleClose = this._handleClose.bind(this);
+    }
+
+    componentDidMount() {
+        this._form.searchlarge.focus()
     }
 
     _handleChange(e) {
@@ -122,12 +127,7 @@ class Search extends React.Component {
             this.setState({ showLargeSearch: { display: 'block' } }, () => {
                 this._form.searchlarge.focus();
             });
-            if (n === 'search') {
-                this._form.searchlarge.value = e.target.value;
-            }
-            else {
-                this._form.search.value = e.target.value;
-            }
+            this._form.searchlarge.value = e.target.value;
         }
         else {
             this._handleClose(e);
@@ -139,6 +139,47 @@ class Search extends React.Component {
         this.setState({ showLargeSearch: { display: 'none' } }, () => {
             this._form.search.focus();
         });
+        Store.dispatch({ type: 'SMALL' });
+    }
+
+    render() {
+        return (
+            <div>
+                <form ref={f => this._form = f}>
+                    <div style={this.state.showLargeSearch}>
+                        <SearchFullScreen
+                            onChange={this._handleChange}
+                            onClose={this._handleClose} />
+                    </div>
+                </form>
+            </div>
+        );
+
+    }
+}
+
+class Search extends React.Component {
+    constructor(props) {
+        super(props);
+        var Store = props.Store;
+
+        this.state = {
+            showLargeSearch: {
+                display: 'none'
+            }
+        };
+
+        this._handleChange = this._handleChange.bind(this);
+        this._handleClose = this._handleClose.bind(this);
+    }
+    _handleChange(e) {
+        e.preventDefault();
+        Store.dispatch({ type: 'FULL' });
+    }
+
+    _handleClose(e) {
+        e.preventDefault();
+        Store.dispatch({ type: 'SMALL' });
     }
 
     render() {
@@ -160,49 +201,51 @@ class Search extends React.Component {
 }
 
 const Nav = (props) => {
-    const {IsSignedIn, User, Title} = props;
+    const {IsSignedIn, User, Title, SearchBarSize} = props;
 
-    return (
-        <div className="navbar navbar-inverse navbar-fixed-top topbar">
-            <div className="container">
-                <div className="navbar-header">
-                    <div className="form-group">
-                        <div className=" col-md-1">
-                            <button type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                                <span className="sr-only">Toggle navigation</span>
-                                <span className="icon-bar"></span>
-                                <span className="icon-bar"></span>
-                                <span className="icon-bar"></span>
-                            </button>
-                        </div>
-                        <div className="col-md-2" style={{ marginRight: '20px' }}>
-                            <Brand />
-                        </div>
-                        <div className="col-md-4">
-                            <Search />
-                        </div>
-                        <div className="col-md-1">
-                            <AddStuffCam />
-                        </div>
-                        <div className="col-md-2">
-                            <HeadShot />
-                        </div>
-                        <div className="col-md-1">
-                            <Notification />
+    if (SearchBarSize === 'FULL') {
+        return (
+            <SearchFullScreenForm Store={Store}/>
+        );
+    } else {
+        return (
+            <div className="navbar navbar-inverse navbar-fixed-top topbar">
+                <div className="container">
+                    <div className="navbar-header">
+                        <div className="form-group">
+                            <div className=" col-md-1">
+                                <button type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                    <span className="sr-only">Toggle navigation</span>
+                                    <span className="icon-bar"></span>
+                                    <span className="icon-bar"></span>
+                                    <span className="icon-bar"></span>
+                                </button>
+                            </div>
+                            <div className="col-md-2" style={{ marginRight: '20px' }}>
+                                <Brand />
+                            </div>
+                            <div className="col-md-4">
+                                <Search Store={Store} />
+                            </div>
+                            <div className="col-md-1">
+                                <AddStuffCam />
+                            </div>
+                            <div className="col-md-2">
+                                <HeadShot />
+                            </div>
+                            <div className="col-md-1">
+                                <Notification />
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div className="navbar-collapse collapse">
-                    <LoginPartial IsSignedIn={IsSignedIn} User={User} Title={Title} />
-                    <ul className="nav navbar-nav">
-                        <li className="active"><a href="/Home/Index">Home</a></li>
-                    </ul>
+                    <div className="navbar-collapse collapse">
+                        <LoginPartial IsSignedIn={IsSignedIn} User={User} Title={Title} />
+                        <ul className="nav navbar-nav">
+                            <li className="active"><a href="/Home/Index">Home</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-    );
+        );
+    }
 };
-
-if (UserInfo !== undefined) {
-    ReactDOM.render(<Nav IsSignedIn={UserInfo.IsSignedIn} User={UserInfo.Name} Title={UserInfo.Title} />, document.getElementById('nav'));
-}
