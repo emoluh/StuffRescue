@@ -1,7 +1,7 @@
-﻿const searchStatus = (state = 'SMALL', action) => {
+﻿const searchStatus = (state = { size: 'SMALL', text: '' }, action) => {
     switch (action.type) {
-        case 'FULL': return 'FULL';
-        case 'SMALL': return 'SMALL';
+        case 'FULL': return { size: 'FULL', text: action.text };
+        case 'SMALL': return { size: 'SMALL', text: action.text };
         default: return state;
     }
 };
@@ -10,7 +10,8 @@ const {createStore} = Redux;
 const Store = createStore(searchStatus)
 
 const render = () => {
-    ReactDOM.render(<Nav IsSignedIn={UserInfo.IsSignedIn} User={UserInfo.Name} Title={UserInfo.Title} SearchBarSize={Store.getState()} Store={Store} />, document.getElementById('nav'));
+    var state = Store.getState();
+    ReactDOM.render(<Nav IsSignedIn={UserInfo.IsSignedIn} User={UserInfo.Name} Title={UserInfo.Title} SearchBarSize={state.size} Text={state.text} Store={Store} />, document.getElementById('nav'));
 };
 
 Store.subscribe(render);
