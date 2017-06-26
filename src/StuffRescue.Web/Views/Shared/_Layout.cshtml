@@ -68,7 +68,7 @@
             Title: ""
         };
         UserInfo.IsSignedIn = @SignInManager.IsSignedIn(User).ToString().ToLower();
-        UserInfo.Name = '@User';
+        UserInfo.Name = '@User.Identity.Name';
         UserInfo.Title = '@ViewData["Title"]';
     </script>
     <script src="@Url.Content("~/js/Components/bundle.jsx")"></script>
