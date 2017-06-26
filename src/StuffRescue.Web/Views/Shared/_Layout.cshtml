@@ -26,18 +26,6 @@
 </head>
 <body>
     <div id="nav"></div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react-dom.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/remarkable/1.7.1/remarkable.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/3.7.0/redux.min.js"></script>
-    <script src="@Url.Content("~/js/Components/Nav.jsx")"></script>
-    <script type="text/javascript">
-        var IsSignedIn = @SignInManager.IsSignedIn(User);
-        var User = @User;
-        var Title = @ViewData["Title"].ToString();
-        ReactDOM.render(<Nav IsSignedIn={IsSignedIn} User={User} Title={Title}/>, document.getElementById('nav'));
-    </script>
-
     <div class="container body-content">
         <div style="margin-top: 35px;">
             @*<a asp-area="" asp-controller="Home" asp-action="Index">
@@ -70,5 +58,19 @@
     </environment>
 
     @RenderSection("scripts", required: false)
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/remarkable/1.7.1/remarkable.min.js"></script>
+    <script type="text/javascript">
+        var UserInfo = {
+            IsSignedIn: false,
+            Name: "",
+            Title: ""
+        };
+        UserInfo.IsSignedIn = @SignInManager.IsSignedIn(User).ToString().ToLower();
+        UserInfo.Name = '@User';
+        UserInfo.Title = '@ViewData["Title"]';
+    </script>
+    <script src="@Url.Content("~/js/Components/bundle.jsx")"></script>
 </body>
 </html>

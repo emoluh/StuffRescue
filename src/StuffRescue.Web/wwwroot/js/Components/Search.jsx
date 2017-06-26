@@ -1,4 +1,7 @@
-﻿class SearchField extends React.Component {
+﻿import React from 'react';
+import ReactDOM from 'react-dom';
+
+class SearchField extends React.Component {
     render() {
         return (
             <div>

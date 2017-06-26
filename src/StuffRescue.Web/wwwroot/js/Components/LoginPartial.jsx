@@ -39,4 +39,4 @@ const LoginPartial = (IsSignIn, User, Title) => {
     }
 };
 
-export default LoginPanel;
+export default LoginPartial;
