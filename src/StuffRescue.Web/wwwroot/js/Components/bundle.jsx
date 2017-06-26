@@ -59,7 +59,7 @@ const LoginPartial = (props) => {
         );
     } else {
         return (
-            <ul class="nav navbar-nav">
+            <ul className="nav navbar-nav">
                 <li key={"0"} className={listClass(Title)}><a href="/Account/Register">Register</a></li>
                 <li key={"1"} className={listClass(Title)}><a href="/Account/Login">Log in</a></li>
             </ul>
