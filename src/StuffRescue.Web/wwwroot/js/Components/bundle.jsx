@@ -39,7 +39,7 @@ const LoginPartial = (props) => {
 
     if (IsSignedIn) {
         return (
-            <form href="/Account/LogOff" method="post" id="logoutForm">
+            <form action="/Account/LogOff" method="post" id="logoutForm">
                 <ul className="nav navbar-nav">
                     <li className={listClass(Title)}>
                         <a className="dropdown-toggle" data-toggle="dropdown">
@@ -89,13 +89,22 @@ class SearchField extends React.Component {
 }
 
 class SearchFullScreen extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    componentDidMount() {
+        this._input.value = this.props.Text;
+    }
+
     render() {
         return (
             <div className="full-screen-search">
                 <button className="close-button"
                     onClick={this.props.onClose}>X</button>
                 <span style={{ fontSize: "2.5em", color: "#F79636", fontWeight: "1.5em" }} className="material-icons">search</span>
-                <input type="text"
+                <input ref={f => this._input = f}
+                    type="text"
                     name="searchlarge"
                     onChange={this.props.onChange} />
             </div>
@@ -110,8 +119,7 @@ class SearchFullScreenForm extends React.Component {
             showLargeSearch: {
                 display: 'block'
             },
-            Store: props.Store,
-            Text: props.Text
+            Store: props.Store
         };
 
         this._handleChange = this._handleChange.bind(this);
@@ -120,7 +128,6 @@ class SearchFullScreenForm extends React.Component {
 
     componentDidMount() {
         this._form.searchlarge.focus();
-        this._form.searchlarge.text = this.state.Text;
     }
 
     _handleChange(e) {
@@ -140,7 +147,7 @@ class SearchFullScreenForm extends React.Component {
     _handleClose(e) {
         e.preventDefault();
         this.setState({ showLargeSearch: { display: 'none' }});
-        Store.dispatch({ type: 'SMALL', text: e.target.value });
+        Store.dispatch({ type: 'SMALL', text: this._form.searchlarge.value });
     }
 
     render() {
@@ -150,7 +157,9 @@ class SearchFullScreenForm extends React.Component {
                     <div style={this.state.showLargeSearch}>
                         <SearchFullScreen
                             onChange={this._handleChange}
-                            onClose={this._handleClose} />
+                            onClose={this._handleClose}
+                            Text={this.props.Text}
+                        />
                     </div>
                 </form>
             </div>
@@ -164,28 +173,18 @@ class Search extends React.Component {
         super(props);
 
         this.state = {
-            showLargeSearch: {
-                display: 'none'
-            },
-            Store: props.Store,
-            Text: props.Text
+            Store: props.Store
         };
 
         this._handleChange = this._handleChange.bind(this);
-        this._handleClose = this._handleClose.bind(this);
     }
 
     componentDidMount() {
-        this._form.search.text = this.state;
+        this._form.search.value = this.props.Text;
     }
     _handleChange(e) {
         e.preventDefault();
         Store.dispatch({ type: 'FULL', text: e.target.value });
-    }
-
-    _handleClose(e) {
-        e.preventDefault();
-        Store.dispatch({ type: 'SMALL', text: e.target.value });
     }
 
     render() {
@@ -194,7 +193,9 @@ class Search extends React.Component {
                 <form ref={f => this._form = f}>
                     <SearchField
                         name="search"
-                        onChange={this._handleChange} />
+                        onChange={this._handleChange}
+                        Text={this.props.Text}
+                    />
                 </form>
             </div>
         );
