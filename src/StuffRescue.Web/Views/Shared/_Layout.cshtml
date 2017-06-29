@@ -62,7 +62,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react-dom.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/remarkable/1.7.1/remarkable.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/3.7.1/redux.min.js"></script>
+    @Html.AntiForgeryToken();
     <script type="text/javascript">
+        function getAntiForgeryToken() { return document.getElementsByName("__RequestVerificationToken")[0].value; }
         var UserInfo = {
             IsSignedIn: false,
             Name: "",
@@ -71,6 +73,7 @@
         UserInfo.IsSignedIn = @SignInManager.IsSignedIn(User).ToString().ToLower();
         UserInfo.Name = '@User.Identity.Name';
         UserInfo.Title = '@ViewData["Title"]';
+        UserInfo.AntiforgeryToken = getAntiForgeryToken();
     </script>
     <script src="@Url.Content("~/js/Components/bundle.jsx")"></script>
     <script src="@Url.Content("~/js/Components/reduxState.jsx")"></script>

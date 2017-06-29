@@ -35,7 +35,7 @@ const listClass = (title) => {
 };
 
 const LoginPartial = (props) => {
-    const {IsSignedIn, User, Title} = props;
+    const {IsSignedIn, User, Title, AntiforgeryToken} = props;
 
     if (IsSignedIn) {
         return (
@@ -55,6 +55,7 @@ const LoginPartial = (props) => {
                 <ul className="nav navbar-nav">
                     <li key={"0"} className={listClass(Title)}><a href="/Stuff/Index">Add Stuff</a></li>
                 </ul>
+                <input type="hidden" name="__RequestVerificationToken" value={AntiforgeryToken} />
             </form>
         );
     } else {
@@ -203,7 +204,7 @@ class Search extends React.Component {
 }
 
 const Nav = (props) => {
-    const {IsSignedIn, User, Title, SearchBarSize, Text, Store} = props;
+    const {IsSignedIn, User, Title, SearchBarSize, Text, Store, AntiforgeryToken} = props;
 
     if (SearchBarSize === 'FULL') {
         return (
@@ -241,7 +242,7 @@ const Nav = (props) => {
                         </div>
                     </div>
                     <div className="navbar-collapse collapse">
-                        <LoginPartial IsSignedIn={IsSignedIn} User={User} Title={Title} />
+                        <LoginPartial IsSignedIn={IsSignedIn} User={User} Title={Title} AntiforgeryToken={AntiforgeryToken}/>
                         <ul className="nav navbar-nav">
                             <li className="active"><a href="/Home/Index">Home</a></li>
                         </ul>
