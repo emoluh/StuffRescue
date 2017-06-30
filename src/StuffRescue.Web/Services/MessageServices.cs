@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Core.Common.Configuration;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 using SendGrid;
 using SendGrid.Helpers.Mail;
@@ -37,7 +38,7 @@ namespace StuffRescue.Web.Services
             var client = new SendGridClient(apiKey);
             var msg = new SendGridMessage()
             {
-                From = new EmailAddress(_config["Email:Sender:From"], _config["Email:Sender:Name"]),
+                From = new EmailAddress(_config[ConfigHelper.Email.Sender.From], _config[ConfigHelper.Email.Sender.Name]),
                 Subject = subject,
                 PlainTextContent = message,
                 HtmlContent = message

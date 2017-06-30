@@ -71,6 +71,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\StuffRescue.FeatureToggle.Common\StuffRescue.FeatureToggle.Common.csproj" />
     <ProjectReference Include="..\..\StuffRescue.FeatureToggle.Shared\StuffRescue.FeatureToggle.Shared.csproj" />
+    <ProjectReference Include="..\Core.Common\Core.Common.csproj" />
   </ItemGroup>
 
   <ItemGroup>

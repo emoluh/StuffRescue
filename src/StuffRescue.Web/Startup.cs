@@ -11,6 +11,7 @@ using StuffRescue.Web.Services;
 using Microsoft.AspNetCore.Mvc;
 using StuffRescue.FeatureToggle.Internal;
 using StuffRescue.Web.Models.FeatureToggle;
+using Core.Common.Configuration;
 
 namespace StuffRescue.Web
 {
@@ -44,10 +45,12 @@ namespace StuffRescue.Web
             services.AddSingleton(new Facebook { ToggleValueProvider = provider });
 
             //services.AddSingleton(new Facebook ());
+            //TODO Figure the proper DI for use in startup file ApplicationSettingsFactory.GetApplicationSettings().ConnectionString
+            //services.AddTransient<IApplicationSettings, WebConfigApplicationSettings>();
 
             // Add framework services.
             services.AddDbContext<StuffRescueDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlServer(Configuration.GetConnectionString(ConfigHelper.ConnectionStrings.DefaultConnection)));
 
             services.AddIdentity<StuffRescueUser, IdentityRole>(config =>
                 {
@@ -68,11 +71,10 @@ namespace StuffRescue.Web
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();
 
-            //services.Configure<AuthMessageSenderOptions>(Configuration);
             services.Configure<AuthMessageSenderOptions>(config => 
             {
-                config.SendGridUser = Configuration["Email:SendGrid:SendGridUser"];
-                config.SendGridKey = Configuration["Email:SendGrid:SendGridKey"];
+                config.SendGridUser = Configuration[ConfigHelper.Email.SendGrid.SendGridUser];
+                config.SendGridKey = Configuration[ConfigHelper.Email.SendGrid.SendGridKey];
             });
 
             services.AddSingleton(config => Configuration);
@@ -81,7 +83,7 @@ namespace StuffRescue.Web
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
+            loggerFactory.AddConsole(Configuration.GetSection(ConfigHelper.Logging.Name));
             loggerFactory.AddDebug();
 
             if (env.IsDevelopment())
@@ -106,8 +108,8 @@ namespace StuffRescue.Web
             //dotnet user-secrets set Authentication:Google: ClientSecret < client - secret >
             app.UseGoogleAuthentication(new GoogleOptions()
             {
-                ClientId = Configuration["Authentication:Google:ClientId"],
-                ClientSecret = Configuration["Authentication:Google:ClientSecret"]
+                ClientId = Configuration[ConfigHelper.Authentication.Google.ClientId],
+                ClientSecret = Configuration[ConfigHelper.Authentication.Google.ClientSecret]
             });
 
 
@@ -116,8 +118,8 @@ namespace StuffRescue.Web
             //dotnet user-secrets set Authentication:Facebook:AppSecret <app-secret>
             app.UseFacebookAuthentication(new FacebookOptions()
             {
-                AppId = Configuration["Authentication:Facebook:AppId"],
-                AppSecret = Configuration["Authentication:Facebook:AppSecret"]
+                AppId = Configuration[ConfigHelper.Authentication.Facebook.AppId],
+                AppSecret = Configuration[ConfigHelper.Authentication.Facebook.AppSecret]
             });
 
             app.UseMvc(routes =>
