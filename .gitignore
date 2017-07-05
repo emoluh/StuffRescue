@@ -28,4 +28,4 @@ obj/
 # Visual Studio 2015
 .vs/
 node_modules
-
+*.swp
