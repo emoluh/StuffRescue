@@ -6,12 +6,12 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
-using StuffRescue.Web.Models;
 using StuffRescue.Web.Models.AccountViewModels;
 using StuffRescue.Web.Services;
 using StuffRescue.Web.Models.FeatureToggle;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.Hosting;
+using StuffRescue.Business.Entities;
 
 namespace StuffRescue.Web.Controllers
 {

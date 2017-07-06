@@ -7,19 +7,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Hosting", "1. Hosting", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StuffRescue.Web", "src\StuffRescue.Web\StuffRescue.Web.csproj", "{DD285898-F67B-4FF5-BA2B-5CC53272BCB3}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4. Tests", "4. Tests", "{FEF7E4AB-FE23-457D-85AA-24D9F305D779}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6. Tests", "6. Tests", "{FEF7E4AB-FE23-457D-85AA-24D9F305D779}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.Integration Tests", "2.Integration Tests", "{5FAB39F5-FA1E-41B1-AFDE-C64E65C1C949}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StuffRescue.Web.Tests", "StuffRescue.Web.Tests\StuffRescue.Web.Tests.csproj", "{A4D9C71C-DE09-479C-BF40-94B4FCAE357B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StuffRescue.Web.Tests", "StuffRescue.Web.Tests\StuffRescue.Web.Tests.csproj", "{A4D9C71C-DE09-479C-BF40-94B4FCAE357B}"
 EndProject
 Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "StuffRescue.FeatureToggle", "StuffRescue.FeatureToggle\StuffRescue.FeatureToggle.njsproj", "{C1908BE9-5CD9-49A8-96DA-677FF6E75697}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Tools", "3. Tools", "{5A8A0C41-F798-4667-B764-BD18D3EC81CE}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5. Tools", "5. Tools", "{5A8A0C41-F798-4667-B764-BD18D3EC81CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StuffRescue.FeatureToggle.Common", "StuffRescue.FeatureToggle.Common\StuffRescue.FeatureToggle.Common.csproj", "{4B59A4BC-5CBD-4FAB-9537-0D48EF74EDE3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StuffRescue.FeatureToggle.Common", "StuffRescue.FeatureToggle.Common\StuffRescue.FeatureToggle.Common.csproj", "{4B59A4BC-5CBD-4FAB-9537-0D48EF74EDE3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StuffRescue.FeatureToggle.Shared", "StuffRescue.FeatureToggle.Shared\StuffRescue.FeatureToggle.Shared.csproj", "{65E36B71-3F3D-44CE-BB47-C865B2257036}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StuffRescue.FeatureToggle.Shared", "StuffRescue.FeatureToggle.Shared\StuffRescue.FeatureToggle.Shared.csproj", "{65E36B71-3F3D-44CE-BB47-C865B2257036}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0. Docs", "0. Docs", "{041A8411-BE88-4E32-8DEA-B7740AF79687}"
 	ProjectSection(SolutionItems) = preProject
@@ -27,9 +27,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0. Docs", "0. Docs", "{041A
 		doc\2. Database Schema.vsdx = doc\2. Database Schema.vsdx
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Infrastructure", "2. Infrastructure", "{94802FE8-D875-4E16-A3F2-94F89C3FBFF5}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Infrastructure", "3. Infrastructure", "{94802FE8-D875-4E16-A3F2-94F89C3FBFF5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Common", "src\Core.Common\Core.Common.csproj", "{D21B9C75-E159-4C8F-88F8-5FC4FEA19141}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StuffRescue.FeatureToggle.Web", "src\StuffRescue.FeatureToggle.Web\StuffRescue.FeatureToggle.Web.csproj", "{4D4BA057-8822-4131-958E-9416F32BF93D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Common.Contracts", "src\Core.Common.Contracts\Core.Common.Contracts.csproj", "{F2E83B24-9958-4A59-AFAA-15BC50A9F00D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4. Data Access", "4. Data Access", "{FEE1CA50-9F15-480E-BA34-0D4092C8D168}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Business", "2. Business", "{09D599AC-4D7B-4224-A843-337CD702E3B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StuffRescue.Business.Entities", "src\StuffRescue.Business.Entities\StuffRescue.Business.Entities.csproj", "{1CD8E64F-08A1-47E5-B95F-C04B55B562AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StuffRescue.Data", "src\StuffRescue.Data\StuffRescue.Data.csproj", "{4846A01F-B35A-4EB3-BCB1-4EAC66E23B3D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,6 +73,22 @@ Global
 		{D21B9C75-E159-4C8F-88F8-5FC4FEA19141}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D21B9C75-E159-4C8F-88F8-5FC4FEA19141}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D21B9C75-E159-4C8F-88F8-5FC4FEA19141}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D4BA057-8822-4131-958E-9416F32BF93D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D4BA057-8822-4131-958E-9416F32BF93D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D4BA057-8822-4131-958E-9416F32BF93D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D4BA057-8822-4131-958E-9416F32BF93D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2E83B24-9958-4A59-AFAA-15BC50A9F00D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2E83B24-9958-4A59-AFAA-15BC50A9F00D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2E83B24-9958-4A59-AFAA-15BC50A9F00D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2E83B24-9958-4A59-AFAA-15BC50A9F00D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CD8E64F-08A1-47E5-B95F-C04B55B562AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CD8E64F-08A1-47E5-B95F-C04B55B562AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CD8E64F-08A1-47E5-B95F-C04B55B562AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CD8E64F-08A1-47E5-B95F-C04B55B562AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4846A01F-B35A-4EB3-BCB1-4EAC66E23B3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4846A01F-B35A-4EB3-BCB1-4EAC66E23B3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4846A01F-B35A-4EB3-BCB1-4EAC66E23B3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4846A01F-B35A-4EB3-BCB1-4EAC66E23B3D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -73,5 +101,9 @@ Global
 		{4B59A4BC-5CBD-4FAB-9537-0D48EF74EDE3} = {5A8A0C41-F798-4667-B764-BD18D3EC81CE}
 		{65E36B71-3F3D-44CE-BB47-C865B2257036} = {5A8A0C41-F798-4667-B764-BD18D3EC81CE}
 		{D21B9C75-E159-4C8F-88F8-5FC4FEA19141} = {94802FE8-D875-4E16-A3F2-94F89C3FBFF5}
+		{4D4BA057-8822-4131-958E-9416F32BF93D} = {00405DEA-2C88-4DF4-A930-0CD60D87FFC3}
+		{F2E83B24-9958-4A59-AFAA-15BC50A9F00D} = {94802FE8-D875-4E16-A3F2-94F89C3FBFF5}
+		{1CD8E64F-08A1-47E5-B95F-C04B55B562AF} = {09D599AC-4D7B-4224-A843-337CD702E3B5}
+		{4846A01F-B35A-4EB3-BCB1-4EAC66E23B3D} = {FEE1CA50-9F15-480E-BA34-0D4092C8D168}
 	EndGlobalSection
 EndGlobal

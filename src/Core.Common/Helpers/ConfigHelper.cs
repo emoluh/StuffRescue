@@ -5,6 +5,7 @@
         public class ConnectionStrings
         {
             public static string DefaultConnection = "DefaultConnection";
+            public static string Value = "Server=(localdb)\\mssqllocaldb;Database=StuffRescue;Trusted_Connection=True;MultipleActiveResultSets=true";
         }
         public class Authentication
         {

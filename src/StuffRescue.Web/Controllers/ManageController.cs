@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using StuffRescue.Web.Models;
 using StuffRescue.Web.Models.ManageViewModels;
 using StuffRescue.Web.Services;
+using StuffRescue.Business.Entities;
 
 namespace StuffRescue.Web.Controllers
 {

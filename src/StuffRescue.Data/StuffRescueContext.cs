@@ -1,15 +1,27 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Core.Common.Configuration;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using StuffRescue.Web.Models;
+using StuffRescue.Business.Entities;
+using System.Reflection;
 
-namespace StuffRescue.Web.Data
+namespace StuffRescue.Data
 {
-    public class StuffRescueDbContext : IdentityDbContext<StuffRescueUser>
+    public class StuffRescueContext : IdentityDbContext<StuffRescueUser>
     {
-        public StuffRescueDbContext(DbContextOptions<StuffRescueDbContext> options)
+        public StuffRescueContext()
+            : base()
+        {
+
+        }
+        public StuffRescueContext(DbContextOptions<StuffRescueContext> options)
             : base(options)
         {
         }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+            => optionsBuilder.UseSqlServer(ConfigHelper.ConnectionStrings.Value, op => op.MigrationsAssembly(typeof(StuffRescueContext).GetTypeInfo().Assembly.GetName().Name));
+
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

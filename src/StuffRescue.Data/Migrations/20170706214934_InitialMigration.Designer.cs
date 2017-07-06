@@ -3,14 +3,15 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
-using StuffRescue.Web.Data;
+using StuffRescue.Data;
 
-namespace StuffRescue.Web.Data.Migrations
+namespace StuffRescue.Data.Migrations
 {
-    [DbContext(typeof(StuffRescueDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(StuffRescueContext))]
+    [Migration("20170706214934_InitialMigration")]
+    partial class InitialMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2")
@@ -123,7 +124,7 @@ namespace StuffRescue.Web.Data.Migrations
                     b.ToTable("UserTokens");
                 });
 
-            modelBuilder.Entity("StuffRescue.Web.Models.StuffRescueUser", b =>
+            modelBuilder.Entity("StuffRescue.Business.Entities.StuffRescueUser", b =>
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
@@ -183,7 +184,7 @@ namespace StuffRescue.Web.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("StuffRescue.Web.Models.StuffRescueUser")
+                    b.HasOne("StuffRescue.Business.Entities.StuffRescueUser")
                         .WithMany("Claims")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -191,7 +192,7 @@ namespace StuffRescue.Web.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("StuffRescue.Web.Models.StuffRescueUser")
+                    b.HasOne("StuffRescue.Business.Entities.StuffRescueUser")
                         .WithMany("Logins")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -204,7 +205,7 @@ namespace StuffRescue.Web.Data.Migrations
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("StuffRescue.Web.Models.StuffRescueUser")
+                    b.HasOne("StuffRescue.Business.Entities.StuffRescueUser")
                         .WithMany("Roles")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);

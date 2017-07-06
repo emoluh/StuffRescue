@@ -5,13 +5,13 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using StuffRescue.Web.Data;
-using StuffRescue.Web.Models;
 using StuffRescue.Web.Services;
 using Microsoft.AspNetCore.Mvc;
 using StuffRescue.FeatureToggle.Internal;
 using StuffRescue.Web.Models.FeatureToggle;
 using Core.Common.Configuration;
+using StuffRescue.Business.Entities;
+using StuffRescue.Data;
 
 namespace StuffRescue.Web
 {
@@ -49,14 +49,14 @@ namespace StuffRescue.Web
             //services.AddTransient<IApplicationSettings, WebConfigApplicationSettings>();
 
             // Add framework services.
-            services.AddDbContext<StuffRescueDbContext>(options =>
+            services.AddDbContext<StuffRescueContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString(ConfigHelper.ConnectionStrings.DefaultConnection)));
 
             services.AddIdentity<StuffRescueUser, IdentityRole>(config =>
                 {
                     config.SignIn.RequireConfirmedEmail = true;
                 })
-                .AddEntityFrameworkStores<StuffRescueDbContext>()
+                .AddEntityFrameworkStores<StuffRescueContext>()
                 .AddDefaultTokenProviders();
 
 
