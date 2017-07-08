@@ -21,7 +21,7 @@ namespace StuffRescue.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
             => optionsBuilder.UseSqlServer(ConfigHelper.ConnectionStrings.Value, op => op.MigrationsAssembly(typeof(StuffRescueContext).GetTypeInfo().Assembly.GetName().Name));
 
-
+        public DbSet<Feature> FeatureSet { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

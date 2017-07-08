@@ -1,6 +1,7 @@
 ﻿using Core.Common.Contracts;
 using Core.Common.Utils;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System.Collections.Generic;
 
 namespace Core.Common.Data
