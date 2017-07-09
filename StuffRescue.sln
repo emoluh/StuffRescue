@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.10
+VisualStudioVersion = 15.0.26430.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4. User Experience Layer", "4. User Experience Layer", "{00405DEA-2C88-4DF4-A930-0CD60D87FFC3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "7. Tests", "7. Tests", "{FEF7E4AB-FE23-457D-85AA-24D9F305D779}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.Integration Tests", "2.Integration Tests", "{5FAB39F5-FA1E-41B1-AFDE-C64E65C1C949}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Integration Tests", "2. Integration Tests", "{5FAB39F5-FA1E-41B1-AFDE-C64E65C1C949}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6. Tools", "6. Tools", "{5A8A0C41-F798-4667-B764-BD18D3EC81CE}"
 EndProject
@@ -46,6 +46,12 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StuffRescue.Data.Contracts", "1. Data Access Layer\StuffRescue.Data.Contracts\StuffRescue.Data.Contracts.csproj", "{ECA56743-620F-4FEF-AFC3-21F15602361A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StuffRescue.Web.Tests", "7. Tests\2.Integration Tests\StuffRescue.Web.Tests\StuffRescue.Web.Tests.csproj", "{29ADFBA4-0D06-495D-8FA6-B57B7827EEE6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Unit Tests", "1. Unit Tests", "{B24615F4-3B25-40A3-A49A-33564A1994FB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StuffRescue.Data.Tests", "7. Tests\1. Unit Tests\StuffRescue.Data.Tests\StuffRescue.Data.Tests.csproj", "{88685CF4-225A-49E4-9625-DEF375BD5B07}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StuffRescue.Business.Bootstrapper", "2. Business Logic Layer\StuffRescue.Business.Bootstrapper\StuffRescue.Business.Bootstrapper.csproj", "{F27554F0-4A0D-4942-9088-7774462E40AE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -97,6 +103,14 @@ Global
 		{29ADFBA4-0D06-495D-8FA6-B57B7827EEE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29ADFBA4-0D06-495D-8FA6-B57B7827EEE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29ADFBA4-0D06-495D-8FA6-B57B7827EEE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88685CF4-225A-49E4-9625-DEF375BD5B07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88685CF4-225A-49E4-9625-DEF375BD5B07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88685CF4-225A-49E4-9625-DEF375BD5B07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88685CF4-225A-49E4-9625-DEF375BD5B07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F27554F0-4A0D-4942-9088-7774462E40AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F27554F0-4A0D-4942-9088-7774462E40AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F27554F0-4A0D-4942-9088-7774462E40AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F27554F0-4A0D-4942-9088-7774462E40AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -114,5 +128,8 @@ Global
 		{DD84B405-8208-4133-9A56-95AF24A8B466} = {FEE1CA50-9F15-480E-BA34-0D4092C8D168}
 		{ECA56743-620F-4FEF-AFC3-21F15602361A} = {FEE1CA50-9F15-480E-BA34-0D4092C8D168}
 		{29ADFBA4-0D06-495D-8FA6-B57B7827EEE6} = {5FAB39F5-FA1E-41B1-AFDE-C64E65C1C949}
+		{B24615F4-3B25-40A3-A49A-33564A1994FB} = {FEF7E4AB-FE23-457D-85AA-24D9F305D779}
+		{88685CF4-225A-49E4-9625-DEF375BD5B07} = {B24615F4-3B25-40A3-A49A-33564A1994FB}
+		{F27554F0-4A0D-4942-9088-7774462E40AE} = {09D599AC-4D7B-4224-A843-337CD702E3B5}
 	EndGlobalSection
 EndGlobal

@@ -1,17 +1,11 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using StuffRescue.Web.Services;
 using Microsoft.AspNetCore.Mvc;
-using StuffRescue.FeatureToggle.Internal;
-using StuffRescue.Web.Models.FeatureToggle;
 using Core.Common.Configuration;
-using StuffRescue.Business.Entities;
-using StuffRescue.Data;
+using StuffRescue.Business.Bootstrapper;
 
 namespace StuffRescue.Web
 {
@@ -39,42 +33,13 @@ namespace StuffRescue.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // Set provider config so file is read from content root path
-            var provider = new AppSettingsProvider { Configuration = Configuration };
-
-            services.AddSingleton(new Facebook { ToggleValueProvider = provider });
-
-            //services.AddSingleton(new Facebook ());
-            //TODO Figure the proper DI for use in startup file ApplicationSettingsFactory.GetApplicationSettings().ConnectionString
-            //services.AddTransient<IApplicationSettings, WebConfigApplicationSettings>();
-
-            // Add framework services.
-            services.AddDbContext<StuffRescueContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString(ConfigHelper.ConnectionStrings.DefaultConnection)));
-
-            services.AddIdentity<StuffRescueUser, IdentityRole>(config =>
-                {
-                    config.SignIn.RequireConfirmedEmail = true;
-                })
-                .AddEntityFrameworkStores<StuffRescueContext>()
-                .AddDefaultTokenProviders();
-
+           
+            services.Init(Configuration);
 
             services.AddMvc(options =>
             {
                 options.SslPort = 44321;
                 options.Filters.Add(new RequireHttpsAttribute());
-            });
-
-
-            // Add application services.
-            services.AddTransient<IEmailSender, AuthMessageSender>();
-            services.AddTransient<ISmsSender, AuthMessageSender>();
-
-            services.Configure<AuthMessageSenderOptions>(config => 
-            {
-                config.SendGridUser = Configuration[ConfigHelper.Email.SendGrid.SendGridUser];
-                config.SendGridKey = Configuration[ConfigHelper.Email.SendGrid.SendGridKey];
             });
 
             services.AddSingleton(config => Configuration);

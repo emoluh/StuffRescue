@@ -5,8 +5,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using StuffRescue.Web.Models.ManageViewModels;
-using StuffRescue.Web.Services;
 using StuffRescue.Business.Entities;
+using Core.Common.Contracts;
 
 namespace StuffRescue.Web.Controllers
 {

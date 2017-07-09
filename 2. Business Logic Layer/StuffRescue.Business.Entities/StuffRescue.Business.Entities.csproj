@@ -8,4 +8,9 @@
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="1.1.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\5. Infrastructure\Core.Common\Core.Common.csproj" />
+    <ProjectReference Include="..\..\6. Tools\StuffRescue.FeatureToggle.Shared\StuffRescue.FeatureToggle.Shared.csproj" />
+  </ItemGroup>
+
 </Project>

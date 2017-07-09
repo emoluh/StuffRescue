@@ -61,10 +61,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\1. Data Access Layer\StuffRescue.Data\StuffRescue.Data.csproj" />
+    <ProjectReference Include="..\..\2. Business Logic Layer\StuffRescue.Business.Bootstrapper\StuffRescue.Business.Bootstrapper.csproj" />
     <ProjectReference Include="..\..\2. Business Logic Layer\StuffRescue.Business.Entities\StuffRescue.Business.Entities.csproj" />
     <ProjectReference Include="..\..\5. Infrastructure\Core.Common\Core.Common.csproj" />
-    <ProjectReference Include="..\..\6. Tools\StuffRescue.FeatureToggle.Common\StuffRescue.FeatureToggle.Common.csproj" />
-    <ProjectReference Include="..\..\6. Tools\StuffRescue.FeatureToggle.Shared\StuffRescue.FeatureToggle.Shared.csproj" />
   </ItemGroup>
 
   <ItemGroup>

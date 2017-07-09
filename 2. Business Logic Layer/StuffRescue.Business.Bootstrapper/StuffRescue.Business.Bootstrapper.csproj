@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="1.1.2" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="1.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\1. Data Access Layer\StuffRescue.Data.Contracts\StuffRescue.Data.Contracts.csproj" />
+    <ProjectReference Include="..\..\1. Data Access Layer\StuffRescue.Data\StuffRescue.Data.csproj" />
+    <ProjectReference Include="..\..\6. Tools\StuffRescue.FeatureToggle.Shared\StuffRescue.FeatureToggle.Shared.csproj" />
+  </ItemGroup>
+
+</Project>
