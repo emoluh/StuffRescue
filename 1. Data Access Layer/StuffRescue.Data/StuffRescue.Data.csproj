@@ -19,7 +19,6 @@
   
   <ItemGroup>
     <ProjectReference Include="..\..\2. Business Logic Layer\StuffRescue.Business.Entities\StuffRescue.Business.Entities.csproj" />
-    <ProjectReference Include="..\..\5. Infrastructure\Core.Common\Core.Common.csproj" />
     <ProjectReference Include="..\StuffRescue.Data.Contracts\StuffRescue.Data.Contracts.csproj" />
   </ItemGroup>
 

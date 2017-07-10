@@ -123,6 +123,20 @@ namespace StuffRescue.Data.Migrations
                     b.ToTable("UserTokens");
                 });
 
+            modelBuilder.Entity("StuffRescue.Business.Entities.Feature", b =>
+                {
+                    b.Property<int>("FeatureId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<bool>("Enabled");
+
+                    b.Property<string>("Name");
+
+                    b.HasKey("FeatureId");
+
+                    b.ToTable("FeatureSet");
+                });
+
             modelBuilder.Entity("StuffRescue.Business.Entities.StuffRescueUser", b =>
                 {
                     b.Property<string>("Id")

@@ -38,6 +38,20 @@ namespace StuffRescue.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "FeatureSet",
+                columns: table => new
+                {
+                    FeatureId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Enabled = table.Column<bool>(nullable: false),
+                    Name = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_FeatureSet", x => x.FeatureId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "User",
                 columns: table => new
                 {
@@ -202,6 +216,9 @@ namespace StuffRescue.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "UserTokens");
+
+            migrationBuilder.DropTable(
+                name: "FeatureSet");
 
             migrationBuilder.DropTable(
                 name: "Role");

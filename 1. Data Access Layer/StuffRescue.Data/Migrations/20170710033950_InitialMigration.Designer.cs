@@ -8,7 +8,7 @@ using StuffRescue.Data;
 namespace StuffRescue.Data.Migrations
 {
     [DbContext(typeof(StuffRescueContext))]
-    [Migration("20170706214934_InitialMigration")]
+    [Migration("20170710033950_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -122,6 +122,20 @@ namespace StuffRescue.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("UserTokens");
+                });
+
+            modelBuilder.Entity("StuffRescue.Business.Entities.Feature", b =>
+                {
+                    b.Property<int>("FeatureId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<bool>("Enabled");
+
+                    b.Property<string>("Name");
+
+                    b.HasKey("FeatureId");
+
+                    b.ToTable("FeatureSet");
                 });
 
             modelBuilder.Entity("StuffRescue.Business.Entities.StuffRescueUser", b =>

@@ -39,8 +39,6 @@ namespace StuffRescue.Business.Bootstrapper
                 .AddEntityFrameworkStores<StuffRescueContext>()
                 .AddDefaultTokenProviders();
 
-
-
             // Add application services.
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();
