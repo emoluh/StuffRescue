@@ -49,6 +49,9 @@ namespace StuffRescue.Business.Bootstrapper
                 config.SendGridUser = Configuration[ConfigHelper.Email.SendGrid.SendGridUser];
                 config.SendGridKey = Configuration[ConfigHelper.Email.SendGrid.SendGridKey];
             });
+            
+
+            services.AddSingleton(config => Configuration);
 
             return services;
         }

@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\1. Data Access Layer\StuffRescue.Data.Common\StuffRescue.Data.Common.csproj" />
     <ProjectReference Include="..\..\..\2. Business Logic Layer\StuffRescue.Business.Bootstrapper\StuffRescue.Business.Bootstrapper.csproj" />
   </ItemGroup>
 

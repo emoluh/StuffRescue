@@ -41,8 +41,6 @@ namespace StuffRescue.Web
                 options.SslPort = 44321;
                 options.Filters.Add(new RequireHttpsAttribute());
             });
-
-            services.AddSingleton(config => Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
