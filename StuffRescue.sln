@@ -53,7 +53,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StuffRescue.Data.Tests", "7
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StuffRescue.Business.Bootstrapper", "2. Business Logic Layer\StuffRescue.Business.Bootstrapper\StuffRescue.Business.Bootstrapper.csproj", "{F27554F0-4A0D-4942-9088-7774462E40AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StuffRescue.Data.Common", "1. Data Access Layer\StuffRescue.Data.Common\StuffRescue.Data.Common.csproj", "{FF707BA7-E493-40A8-8C2D-891A554E6F06}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StuffRescue.Data.Common", "1. Data Access Layer\StuffRescue.Data.Common\StuffRescue.Data.Common.csproj", "{FF707BA7-E493-40A8-8C2D-891A554E6F06}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StuffRescue.Services", "3. Service Layer\StuffRescue.Services\StuffRescue.Services.csproj", "{5A939A91-9740-4C31-83AF-7F2BC12BA48F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -117,6 +119,10 @@ Global
 		{FF707BA7-E493-40A8-8C2D-891A554E6F06}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF707BA7-E493-40A8-8C2D-891A554E6F06}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF707BA7-E493-40A8-8C2D-891A554E6F06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A939A91-9740-4C31-83AF-7F2BC12BA48F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A939A91-9740-4C31-83AF-7F2BC12BA48F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A939A91-9740-4C31-83AF-7F2BC12BA48F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A939A91-9740-4C31-83AF-7F2BC12BA48F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -138,5 +144,6 @@ Global
 		{88685CF4-225A-49E4-9625-DEF375BD5B07} = {B24615F4-3B25-40A3-A49A-33564A1994FB}
 		{F27554F0-4A0D-4942-9088-7774462E40AE} = {09D599AC-4D7B-4224-A843-337CD702E3B5}
 		{FF707BA7-E493-40A8-8C2D-891A554E6F06} = {FEE1CA50-9F15-480E-BA34-0D4092C8D168}
+		{5A939A91-9740-4C31-83AF-7F2BC12BA48F} = {26396CBD-24FA-4BF7-ADA1-0D58AE595B80}
 	EndGlobalSection
 EndGlobal

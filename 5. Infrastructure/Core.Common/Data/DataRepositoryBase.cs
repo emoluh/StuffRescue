@@ -52,7 +52,9 @@ namespace Core.Common.Data
             }
             public IEnumerable<T> Get()
             {
-                using (U entityContext = new U())
+                //TODO : Fix the DI Container Dispose Issue
+                //using (U entityContext = new U())
+                U entityContext = new U();
                     return GetEntities(entityContext);
             }
             public T Get(int id)

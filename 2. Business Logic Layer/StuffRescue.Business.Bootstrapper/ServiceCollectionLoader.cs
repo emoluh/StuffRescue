@@ -55,5 +55,11 @@ namespace StuffRescue.Business.Bootstrapper
 
             return services;
         }
+
+        public static IServiceCollection Init(this IServiceCollection services)
+        {
+            services.AddTransient<IFeatureRepository, FeatureRepository>();
+            return services;
+        }
     }
 }
