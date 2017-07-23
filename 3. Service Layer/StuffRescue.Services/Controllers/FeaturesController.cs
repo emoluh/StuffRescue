@@ -1,7 +1,10 @@
 ﻿using Core.Common.Contracts;
 using Microsoft.AspNetCore.Mvc;
+using StuffRescue.Business.Entities;
 using StuffRescue.Data.Contracts;
+using StuffRescue.Services.Mapping;
 using StuffRescue.Services.Messaging.FeaturesService;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace StuffRescue.Services.Controllers
@@ -24,13 +27,11 @@ namespace StuffRescue.Services.Controllers
             IFeatureRepository featureRepository
                     = _dataRepositoryFactory.GetDataRepository<IFeatureRepository>();
 
+            IEnumerable<Feature> features = featureRepository.Get();
 
-            //TODO: Use the proper data structure response object
-            //response.Features = featureRepository.Get();
+            response.Features = features.ConvertToFeatureViewModel();
 
-            var features = featureRepository.Get();
-
-            return Ok(features);
+            return Ok(response);
         }
 
         // GET api/values/5

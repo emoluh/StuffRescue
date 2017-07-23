@@ -1,11 +1,14 @@
-﻿using Core.Common.Contracts;
+﻿using AutoMapper;
+using Core.Common.Contracts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using StuffRescue.Business.Bootstrapper;
+using StuffRescue.Business.Entities;
 using StuffRescue.Data.Common;
+using StuffRescue.Services.Models.FeaturesToggleViewModels;
 
 namespace StuffRescue.Services
 {
@@ -38,6 +41,12 @@ namespace StuffRescue.Services
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
+
+
+            Mapper.Initialize(config =>
+            {
+                config.CreateMap<FeatureViewModel, Feature>().ReverseMap();
+            });
 
             app.UseMvc();
         }
