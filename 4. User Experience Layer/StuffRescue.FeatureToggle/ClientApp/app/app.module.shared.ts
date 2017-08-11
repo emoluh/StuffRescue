@@ -7,6 +7,8 @@ import { NavigatorComponent } from './components/shared/navigator/navigator.comp
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { FeaturesComponent } from './components/features/features.component'
 
+import { FeatureService } from './components/shared/feature.service';
+
 export const sharedConfig: NgModule = {
     bootstrap: [ AppComponent ],
     declarations: [
@@ -23,5 +25,8 @@ export const sharedConfig: NgModule = {
             { path: 'features', component: FeaturesComponent },
             { path: '**', redirectTo: 'dashboard' },
         ])
-    ]
+    ],
+    providers: [
+        FeatureService
+    ],
 };
