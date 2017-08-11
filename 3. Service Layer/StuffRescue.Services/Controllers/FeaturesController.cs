@@ -31,7 +31,7 @@ namespace StuffRescue.Services.Controllers
 
             response.Features = features.ConvertToFeatureViewModel();
 
-            return Ok(response);
+            return Ok(response.Features);
         }
 
         // GET api/values/5
