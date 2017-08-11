@@ -55,6 +55,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StuffRescue.Data.Common", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StuffRescue.Services", "3. Service Layer\StuffRescue.Services\StuffRescue.Services.csproj", "{5A939A91-9740-4C31-83AF-7F2BC12BA48F}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StuffRescue.FeatureToggle", "4. User Experience Layer\StuffRescue.FeatureToggle\StuffRescue.FeatureToggle.csproj", "{823EB026-7CAF-49C6-8089-4E7AAC76FF0E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -117,6 +119,10 @@ Global
 		{5A939A91-9740-4C31-83AF-7F2BC12BA48F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A939A91-9740-4C31-83AF-7F2BC12BA48F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A939A91-9740-4C31-83AF-7F2BC12BA48F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{823EB026-7CAF-49C6-8089-4E7AAC76FF0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{823EB026-7CAF-49C6-8089-4E7AAC76FF0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{823EB026-7CAF-49C6-8089-4E7AAC76FF0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{823EB026-7CAF-49C6-8089-4E7AAC76FF0E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -138,5 +144,6 @@ Global
 		{F27554F0-4A0D-4942-9088-7774462E40AE} = {09D599AC-4D7B-4224-A843-337CD702E3B5}
 		{FF707BA7-E493-40A8-8C2D-891A554E6F06} = {FEE1CA50-9F15-480E-BA34-0D4092C8D168}
 		{5A939A91-9740-4C31-83AF-7F2BC12BA48F} = {26396CBD-24FA-4BF7-ADA1-0D58AE595B80}
+		{823EB026-7CAF-49C6-8089-4E7AAC76FF0E} = {00405DEA-2C88-4DF4-A930-0CD60D87FFC3}
 	EndGlobalSection
 EndGlobal
