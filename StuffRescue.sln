@@ -27,8 +27,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Service Layer", "3. Serv
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StuffRescue.Business.Entities", "2. Business Logic Layer\StuffRescue.Business.Entities\StuffRescue.Business.Entities.csproj", "{DB4B1E58-716C-424A-8DC9-C67D44FD6058}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StuffRescue.FeatureToggle.Web", "4. User Experience Layer\StuffRescue.FeatureToggle.Web\StuffRescue.FeatureToggle.Web.csproj", "{0B9AD480-A638-4991-B482-2F7A466BBACE}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StuffRescue.Web", "4. User Experience Layer\StuffRescue.Web\StuffRescue.Web.csproj", "{0FC35108-5A85-4455-8122-89251D7A22E0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Common", "5. Infrastructure\Core.Common\Core.Common.csproj", "{A8D9D57D-FCD5-48E1-AAA4-5A7387739786}"
@@ -55,7 +53,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StuffRescue.Business.Bootst
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StuffRescue.Data.Common", "1. Data Access Layer\StuffRescue.Data.Common\StuffRescue.Data.Common.csproj", "{FF707BA7-E493-40A8-8C2D-891A554E6F06}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StuffRescue.Services", "3. Service Layer\StuffRescue.Services\StuffRescue.Services.csproj", "{5A939A91-9740-4C31-83AF-7F2BC12BA48F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StuffRescue.Services", "3. Service Layer\StuffRescue.Services\StuffRescue.Services.csproj", "{5A939A91-9740-4C31-83AF-7F2BC12BA48F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,10 +65,6 @@ Global
 		{DB4B1E58-716C-424A-8DC9-C67D44FD6058}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB4B1E58-716C-424A-8DC9-C67D44FD6058}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB4B1E58-716C-424A-8DC9-C67D44FD6058}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0B9AD480-A638-4991-B482-2F7A466BBACE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0B9AD480-A638-4991-B482-2F7A466BBACE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0B9AD480-A638-4991-B482-2F7A466BBACE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0B9AD480-A638-4991-B482-2F7A466BBACE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0FC35108-5A85-4455-8122-89251D7A22E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0FC35108-5A85-4455-8122-89251D7A22E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0FC35108-5A85-4455-8122-89251D7A22E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -130,7 +124,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{5FAB39F5-FA1E-41B1-AFDE-C64E65C1C949} = {FEF7E4AB-FE23-457D-85AA-24D9F305D779}
 		{DB4B1E58-716C-424A-8DC9-C67D44FD6058} = {09D599AC-4D7B-4224-A843-337CD702E3B5}
-		{0B9AD480-A638-4991-B482-2F7A466BBACE} = {00405DEA-2C88-4DF4-A930-0CD60D87FFC3}
 		{0FC35108-5A85-4455-8122-89251D7A22E0} = {00405DEA-2C88-4DF4-A930-0CD60D87FFC3}
 		{A8D9D57D-FCD5-48E1-AAA4-5A7387739786} = {94802FE8-D875-4E16-A3F2-94F89C3FBFF5}
 		{FCDDF09D-7D38-40F2-8C0B-8E6E9C0BE808} = {94802FE8-D875-4E16-A3F2-94F89C3FBFF5}
