@@ -26,9 +26,7 @@ export class FeaturesComponent implements OnInit{
     }
 
     ngOnInit(): void {
-        //TODO: Fix The Promise
-        //this.getFeatures();
-        this.features = [{ "name": "Facebook", "enabled": true }, { "name": "Google", "enabled": false }];
+        this.getFeatures();
     }
 
     onSelect(feature: Feature): void {

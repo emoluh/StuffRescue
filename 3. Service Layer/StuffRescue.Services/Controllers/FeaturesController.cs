@@ -13,10 +13,13 @@ namespace StuffRescue.Services.Controllers
     public class FeaturesController : Controller
     {
         IDataRepositoryFactory _dataRepositoryFactory;
+        IFeatureRepository _featureRepository;
 
         public FeaturesController(IDataRepositoryFactory dataRepositoryFactory)
         {
             _dataRepositoryFactory = dataRepositoryFactory;
+            _featureRepository 
+                = _dataRepositoryFactory.GetDataRepository<IFeatureRepository>();
         }
 
         // GET: api/values
@@ -24,10 +27,8 @@ namespace StuffRescue.Services.Controllers
         public IActionResult Get()
         {
             GetAllFeaturesResponse response = new GetAllFeaturesResponse();
-            IFeatureRepository featureRepository
-                    = _dataRepositoryFactory.GetDataRepository<IFeatureRepository>();
 
-            IEnumerable<Feature> features = featureRepository.Get();
+            IEnumerable<Feature> features = _featureRepository.Get();
 
             response.Features = features.ConvertToFeatureViewModel();
 
@@ -35,10 +36,17 @@ namespace StuffRescue.Services.Controllers
         }
 
         // GET api/values/5
+        //TODO Use GetFeaureRequest Object From Body
         [HttpGet("{id}")]
-        public string Get(int id)
+        public IActionResult Get(int id)
         {
-            return "value";
+            GetFeatureResponse response = new GetFeatureResponse();
+
+            Feature feature = _featureRepository.Get(id);
+
+            response.Feature = feature.ConvertToFeatureDetailViewModel();
+
+            return Ok(response.Feature);
         }
 
         // POST api/values

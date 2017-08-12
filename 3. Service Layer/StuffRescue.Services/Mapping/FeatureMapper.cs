@@ -13,5 +13,10 @@ namespace StuffRescue.Services.Mapping
             return Mapper.Map<IEnumerable<Feature>,
                               IEnumerable<FeatureViewModel>>(features);
         }
+        public static FeatureViewModel ConvertToFeatureDetailViewModel(
+                                                this Feature feature)
+        {
+            return Mapper.Map<Feature, FeatureViewModel>(feature);
+        }
     }
 }

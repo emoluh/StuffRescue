@@ -15,7 +15,7 @@ export class FeatureService {
     getFeatures(): Promise<Feature[]> {
         return this.http.get(this.featuresUrl)
             .toPromise()
-            .then(response => response.json().data as Feature[])
+            .then(response => response.json() as Feature[])
             .catch(this.handleError);
     }
 
