@@ -31,6 +31,11 @@ export class FeaturesComponent implements OnInit{
 
     onSelect(feature: Feature): void {
         this.selectedFeature = feature;
+        this.gotoDetail();
+    }
+
+    gotoDetail(): void {
+        this.router.navigate(['/detail', this.selectedFeature.featureId]);
     }
 
     delete(feature: Feature): void {
