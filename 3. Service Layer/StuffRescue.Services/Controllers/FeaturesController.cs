@@ -4,6 +4,7 @@ using StuffRescue.Business.Entities;
 using StuffRescue.Data.Contracts;
 using StuffRescue.Services.Mapping;
 using StuffRescue.Services.Messaging.FeaturesService;
+using StuffRescue.Services.Models.FeaturesToggleViewModels;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -51,8 +52,10 @@ namespace StuffRescue.Services.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody]string value)
+        public void Post([FromBody]FeatureViewModel featureViewModel)
         {
+            //CreateCustomerRequest Request = new CreateCustomerRequest();
+            //_featureRepository.Add(Request);
         }
 
         // PUT api/values/5
