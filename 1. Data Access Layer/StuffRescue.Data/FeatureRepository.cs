@@ -9,7 +9,7 @@ namespace StuffRescue.Data
     {
         protected override Feature AddEntity(StuffRescueContext entityContext, Feature entity)
         {
-            return  entityContext.Entry(entity).CurrentValues.ToObject() as Feature;
+            return entityContext.FeatureSet.Add(entity).Entity;
         }
 
         protected override IEnumerable<Feature> GetEntities(StuffRescueContext entityContext)

@@ -38,6 +38,11 @@ export class FeaturesComponent implements OnInit{
         this.router.navigate(['/detail', this.selectedFeature.featureId]);
     }
 
+
+    gotoAdd(): void {
+        this.router.navigate(['/Add', this.selectedFeature.featureId]);
+    }
+
     delete(feature: Feature): void {
         //TODO: Implement Delete operation
         //this.featureService

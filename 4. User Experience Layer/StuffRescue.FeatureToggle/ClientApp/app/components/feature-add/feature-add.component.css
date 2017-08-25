@@ -1,0 +1,6 @@
+﻿input,
+select,
+button,
+textarea {
+    max-width: 280px;
+}

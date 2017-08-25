@@ -31,4 +31,14 @@ export class FeatureService {
             .then(response => response.json() as Feature)
             .catch(this.handleError);
     }
+
+    private headers = new Headers({ 'Content-Type': 'application/json' });
+
+    create(name: string): Promise<Feature> {
+        return this.http
+            .post(this.featuresUrl, JSON.stringify({ name: name }), { headers: this.headers })
+            .toPromise()
+            .then(res => res.json() as Feature)
+            .catch(this.handleError);
+    }
 }
