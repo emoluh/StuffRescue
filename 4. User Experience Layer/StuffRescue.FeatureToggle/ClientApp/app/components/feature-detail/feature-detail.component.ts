@@ -30,11 +30,16 @@ export class FeatureDetailComponent implements OnInit {
           .subscribe(feature => this.feature = feature);
     }
 
-    onSelect(feature: Feature): void {
-        this.feature.enabled = !this.feature.enabled;
+    onSelect(feature: Feature, state: boolean): void {
+        this.feature.enabled = state;
     }
 
     goBack(): void {
       this.location.back();
+    }
+
+    save(): void {
+        this.featureService.update(this.feature)
+            .then(() => this.goBack());
     }
 }

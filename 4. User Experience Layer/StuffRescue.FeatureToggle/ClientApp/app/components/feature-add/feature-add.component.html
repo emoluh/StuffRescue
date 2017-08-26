@@ -7,23 +7,23 @@
             <input #featureName class="form-control" placeholder="name" />
         </div>
     </div>
-    <div class="form-group">
+    <!--<div class="form-group">
         <label class="col-md-2 control-label">Enabled: </label>
         <div class="col-md-10">
             <div class="btn-group" data-toggle="buttons">
                 <label class="btn btn-default" [ngClass]="{'active': feature.enabled}">
                     <input type="radio" name="options" id="option1" autocomplete="off"
-                           [checked]="feature.enabled"
+                           [checked]=true
                            (click)="onSelect(feature)">True
                 </label>
                 <label class="btn btn-default" [ngClass]="{'active': !feature.enabled}">
                     <input type="radio" name="options" id="option2" autocomplete="off"
-                           [checked]="!feature.enabled"
+                           [checked]=false
                            (click)="onSelect(feature)"> False
                 </label>
             </div>
         </div>
-    </div>
+    </div>-->
     <hr />
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">

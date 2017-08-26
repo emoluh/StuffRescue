@@ -14,12 +14,12 @@
                 <label class="btn btn-default" [ngClass]="{'active': feature.enabled}">
                     <input type="radio" name="options" id="option1" autocomplete="off" 
                            [checked]="feature.enabled"
-                            (click)="onSelect(feature)">True
+                            (click)="onSelect(feature, true)">True
                 </label>
                 <label class="btn btn-default" [ngClass]="{'active': !feature.enabled}">
                     <input type="radio" name="options" id="option2" autocomplete="off" 
                            [checked]="!feature.enabled"
-                            (click)="onSelect(feature)"> False
+                            (click)="onSelect(feature, false)"> False
                 </label>
             </div>
         </div>

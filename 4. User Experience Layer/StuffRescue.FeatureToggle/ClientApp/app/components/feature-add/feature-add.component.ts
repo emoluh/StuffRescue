@@ -25,6 +25,9 @@ export class FeatureAddComponent implements OnInit{
         this.getFeatures();
     }
 
+    onSelect(feature: Feature, state: boolean): void {
+        //this.feature.enabled = state;
+    }
 
     goBack(): void {
         this.location.back();

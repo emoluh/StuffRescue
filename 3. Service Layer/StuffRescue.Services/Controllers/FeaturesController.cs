@@ -82,8 +82,33 @@ namespace StuffRescue.Services.Controllers
 
         // PUT api/features/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
+        public IActionResult Put(int id, [FromBody]UpdateFeatureRequest Request)
         {
+            Feature feature = _featureRepository.Get(id);
+
+            if (feature == null)
+            {
+                return NotFound($"Feature {id} does not exist");
+            }
+
+            UpdateFeatureResponse response = new UpdateFeatureResponse();
+            Feature updatedEntity = new Feature();
+            updatedEntity.FeatureId = id;
+            updatedEntity.Name = Request.Name;
+            updatedEntity.Enabled = Request.Enabled;
+            try
+            {
+                Feature updatedFeature = _featureRepository.Update(updatedEntity);
+
+                response.Feature = updatedFeature.ConvertToFeatureDetailViewModel();
+
+                return Ok(response.Feature);
+            }
+            catch (Exception)
+            {
+                //Log Exception
+            }
+            return BadRequest($"Failed to delete feature {id}");
         }
 
         // DELETE api/features/5

@@ -34,6 +34,15 @@ export class FeatureService {
 
     private headers = new Headers({ 'Content-Type': 'application/json' });
 
+    update(feature: Feature): Promise<Feature> {
+        const url = `${this.featuresUrl}/${feature.featureId}`;
+        return this.http
+            .put(url, JSON.stringify(feature), { headers: this.headers })
+            .toPromise()
+            .then(() => feature)
+            .catch(this.handleError);
+    }
+
     create(name: string): Promise<Feature> {
         return this.http
             .post(this.featuresUrl, JSON.stringify({ name: name }), { headers: this.headers })
