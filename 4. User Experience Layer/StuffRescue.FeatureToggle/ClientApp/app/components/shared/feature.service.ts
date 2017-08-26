@@ -41,4 +41,12 @@ export class FeatureService {
             .then(res => res.json() as Feature)
             .catch(this.handleError);
     }
+
+    delete(id: number): Promise<void> {
+        const url = `${this.featuresUrl}/${id}`;
+        return this.http.delete(url, { headers: this.headers })
+            .toPromise()
+            .then(() => null)
+            .catch(this.handleError);
+    }
 }

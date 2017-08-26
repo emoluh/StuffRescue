@@ -1,9 +1,9 @@
-﻿namespace StuffRescue.Services.Messaging.FeaturesService
+﻿using StuffRescue.Services.Models.FeaturesToggleViewModels;
+
+namespace StuffRescue.Services.Messaging.FeaturesService
 {
     public class CreateFeatureResponse
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public bool Enabled { get; set; }
+        public FeatureViewModel Feature { get; set; }
     }
 }

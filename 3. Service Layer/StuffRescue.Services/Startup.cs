@@ -47,7 +47,9 @@ namespace StuffRescue.Services
 
             // Shows UseCors with CorsPolicyBuilder.
             app.UseCors(builder =>
-               builder.AllowAnyOrigin());
+               builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader());
 
             Mapper.Initialize(config =>
             {

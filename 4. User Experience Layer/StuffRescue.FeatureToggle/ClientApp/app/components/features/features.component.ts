@@ -44,13 +44,11 @@ export class FeaturesComponent implements OnInit{
     }
 
     delete(feature: Feature): void {
-        //TODO: Implement Delete operation
-        //this.featureService
-        //    .delete(feature.id)
-        //    .then(() => {
-        //        this.features = this.features.filter(h => h !== feature);
-        //        if (this.selectedFeature === feature) { this.selectedFeature = null; }
-        //    });
-        alert(feature.name + " is deleted");
+        this.featureService
+            .delete(feature.featureId)
+            .then(() => {
+                this.features = this.features.filter(h => h !== feature);
+                if (this.selectedFeature === feature) { this.selectedFeature = null; }
+            });
     }
 }

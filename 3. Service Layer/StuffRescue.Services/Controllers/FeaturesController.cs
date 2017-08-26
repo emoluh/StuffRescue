@@ -25,7 +25,7 @@ namespace StuffRescue.Services.Controllers
                 = _dataRepositoryFactory.GetDataRepository<IFeatureRepository>();
         }
 
-        // GET: api/values
+        // GET: api/features
         [HttpGet]
         public IActionResult Get()
         {
@@ -38,7 +38,7 @@ namespace StuffRescue.Services.Controllers
             return Ok(response.Features);
         }
 
-        // GET api/values/5
+        // GET api/features/5
         //TODO Use GetFeaureRequest Object From Body
         [HttpGet("{id}", Name = "FeatureLookup")]
         public IActionResult Get(int id)
@@ -52,10 +52,11 @@ namespace StuffRescue.Services.Controllers
             return Ok(response.Feature);
         }
 
-        // POST api/values
+        // POST api/features
         [HttpPost]
         public IActionResult Post([FromBody]CreateFeatureRequest Request)
         {
+            CreateFeatureResponse response = new CreateFeatureResponse();
             Feature  addedEntity = new Feature();
             addedEntity.Name = Request.Name;
             addedEntity.Enabled = Request.Enabled;
@@ -66,27 +67,47 @@ namespace StuffRescue.Services.Controllers
 
                 var newUri = Url.Link("FeatureLookup", new { id = addedFeature.FeatureId });
 
-                return Created(newUri, addedFeature);
+                response.Feature = addedFeature.ConvertToFeatureDetailViewModel();
+
+                return Created(newUri, response.Feature);
 
             }
             catch (Exception ex)
             {
-                //Log Error
+                //Log Exception
             }
 
             return BadRequest("Failed to save the feature");
         }
 
-        // PUT api/values/5
+        // PUT api/features/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]string value)
         {
         }
 
-        // DELETE api/values/5
+        // DELETE api/features/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
+            Feature feature = _featureRepository.Get(id);
+
+            if(feature == null)
+            {
+                return NotFound($"Feature {id} does not exist");
+            }
+            try
+            {
+                _featureRepository.Remove(id);
+
+                return Ok();
+            }
+            catch (Exception)
+            {
+                //Log Exception
+            }
+            return BadRequest($"Failed to delete feature {id}");
+
         }
     }
 }

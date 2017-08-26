@@ -34,6 +34,6 @@ export class FeatureAddComponent implements OnInit{
         name = name.trim();
         if (!name) { return; }
         this.featureService.create(name)
-            .then();
+            .then(() => this.goBack());
     }
 }
