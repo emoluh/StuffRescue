@@ -12,31 +12,30 @@ import { FeatureService } from '../shared/feature.service';
         FeatureService
     ]
 })
-export class FeatureAddComponent implements OnInit{
+export class FeatureAddComponent implements OnInit {
+    state: boolean;
+
     constructor(
         private featureService: FeatureService,
         private location: Location) { }
 
-    getFeatures(): void {
-        this.featureService.getFeatures().then();
-    }
 
     ngOnInit(): void {
-        this.getFeatures();
+        this.state = true;
     }
 
-    onSelect(feature: Feature, state: boolean): void {
-        //this.feature.enabled = state;
+    onSelect(state: boolean): void {
+        this.state = state;
     }
 
     goBack(): void {
         this.location.back();
     }
 
-    add(name: string): void {
+    add(name: string, state: boolean): void {
         name = name.trim();
         if (!name) { return; }
-        this.featureService.create(name)
+        this.featureService.create(name,state)
             .then(() => this.goBack());
     }
 }

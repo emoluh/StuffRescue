@@ -43,9 +43,9 @@ export class FeatureService {
             .catch(this.handleError);
     }
 
-    create(name: string): Promise<Feature> {
+    create(name: string, state: boolean): Promise<Feature> {
         return this.http
-            .post(this.featuresUrl, JSON.stringify({ name: name }), { headers: this.headers })
+            .post(this.featuresUrl, JSON.stringify({ name: name, enabled: state }), { headers: this.headers })
             .toPromise()
             .then(res => res.json() as Feature)
             .catch(this.handleError);

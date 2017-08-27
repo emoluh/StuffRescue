@@ -40,7 +40,7 @@ export class FeaturesComponent implements OnInit{
 
 
     gotoAdd(): void {
-        this.router.navigate(['/Add', this.selectedFeature.featureId]);
+        this.router.navigateByUrl('/Add');
     }
 
     delete(feature: Feature): void {
