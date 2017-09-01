@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NotificationModule } from './components/shared/notification/notification.module';
 
 import { AppComponent } from './components/app/app.component'
 import { HomeComponent } from './components/home/home.component';
@@ -24,7 +26,9 @@ export const sharedConfig: NgModule = {
         FeatureAddComponent
     ],
     imports: [
-        FormsModule,
+        FormsModule, 
+        BrowserAnimationsModule,
+        NotificationModule.forRoot(),
         RouterModule.forRoot([
             { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
             { path: 'dashboard', component: DashboardComponent },
