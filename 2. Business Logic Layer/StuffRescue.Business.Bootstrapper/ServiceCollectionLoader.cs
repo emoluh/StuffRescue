@@ -2,7 +2,7 @@
 using Core.Common.Contracts;
 using Core.Common.Messaging;
 using Core.Common.Messaging.Email;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,7 +15,7 @@ namespace StuffRescue.Business.Bootstrapper
 {
     public static class ServiceCollectionLoader
     {
-        public static IServiceCollection Init(this IServiceCollection services, IConfigurationRoot Configuration)
+        public static IServiceCollection Init(this IServiceCollection services, IConfiguration Configuration)
         {
             // Set provider config so file is read from content root path
             var provider = new AppSettingsProvider { Configuration = Configuration };

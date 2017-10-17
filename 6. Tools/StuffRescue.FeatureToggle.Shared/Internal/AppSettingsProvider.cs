@@ -9,9 +9,9 @@ namespace StuffRescue.FeatureToggle.Internal
     {
         private const string KeyNotFoundInAppsettingsMessage = "The key '{0}' was not found in AppSettings";
 
-        IConfigurationRoot _configuration;
+        IConfiguration _configuration;
 
-        public IConfigurationRoot Configuration
+        public IConfiguration Configuration
         {
             get
             {

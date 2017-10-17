@@ -25,9 +25,9 @@ export class FeatureDetailComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-      this.route.paramMap
-          .switchMap((params: ParamMap) => this.featureService.getFeature(+params.get('id')))
-          .subscribe(feature => this.feature = feature);
+      //this.route.paramMap
+      //    .switchMap((params: ParamMap) => this.featureService.getFeature(+params.get('id')))
+      //    .subscribe(feature => this.feature = feature);
     }
 
     onSelect(feature: Feature, state: boolean): void {

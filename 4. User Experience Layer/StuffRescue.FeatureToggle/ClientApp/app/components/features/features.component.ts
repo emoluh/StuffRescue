@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
 })
 export class FeaturesComponent implements OnInit{
     features: Feature[];
-    selectedFeature: Feature;
+    selectedFeature: Feature | null;
 
     constructor(
         private router: Router,
@@ -35,7 +35,7 @@ export class FeaturesComponent implements OnInit{
     }
 
     gotoDetail(): void {
-        this.router.navigate(['/detail', this.selectedFeature.featureId]);
+        this.router.navigate(['/detail', this.selectedFeature!=null? this.selectedFeature.featureId:null]);
     }
 
 

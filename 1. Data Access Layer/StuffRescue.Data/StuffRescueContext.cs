@@ -1,4 +1,5 @@
 ﻿using Core.Common.Configuration;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using StuffRescue.Business.Entities;
